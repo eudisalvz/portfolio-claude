@@ -8,20 +8,22 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0A0A0A]">
 
-      {/* ── DESKTOP: 1024px+ ── */}
-      <div className="hidden lg:block relative bg-[#0A0A0A]" style={{ minHeight: "800px" }}>
-        <div className="relative mx-auto" style={{ maxWidth: "1300px", height: "800px" }}>
+      {/* ── DESKTOP ── */}
+      <div className="hidden lg:flex w-full h-screen">
 
-          {/* Left photo */}
-          <div className="absolute bg-[#1a1a1a] flex items-center justify-center" style={{ width: "525px", height: "700px", left: "50px", top: "50px", borderRadius: "20px" }}>
-            <span className="text-[#333] text-[13px]">photo</span>
-          </div>
+        {/* Left: photo — 40% del ancho */}
+        <div className="flex-shrink-0 m-[50px] rounded-[20px] bg-[#1a1a1a] flex items-center justify-center" style={{ width: "40%" }}>
+          <span className="text-[#333] text-[13px]">photo</span>
+        </div>
+
+        {/* Right column — resto del espacio */}
+        <div className="flex flex-col flex-1 pt-[50px] pr-[50px] overflow-hidden">
 
           {/* Topbar */}
-          <div className="absolute flex items-center justify-between" style={{ left: "625px", right: "50px", top: "50px", height: "20px" }}>
+          <div className="flex items-center justify-between h-5 w-full mb-[200px]">
             <div className="flex items-center gap-[30px]">
               <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse-dot" />
+                <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse-dot flex-shrink-0" />
                 <span className="text-white text-[12px] leading-5">Open for work</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -34,8 +36,8 @@ export default function Home() {
             <Nav />
           </div>
 
-          {/* Content block */}
-          <div className="absolute flex flex-col gap-[30px]" style={{ left: "625px", top: "290px", width: "342px" }}>
+          {/* Content */}
+          <div className="flex flex-col gap-[30px] max-w-[342px]">
             <div>
               <span className="text-white text-[14px] font-medium leading-5 block">Eudis Alvarez</span>
               <span className="text-[#9E9E9E] text-[12px] leading-5 block">UI/UX Designer, Venezuela</span>
@@ -51,25 +53,24 @@ export default function Home() {
             </Section>
             <Crafting />
             <Section label="Connect" id="connect">
-              <a href="mailto:eudisalvz@gmail.com" className="text-[#9E9E9E] underline underline-offset-2 hover:opacity-70 transition-opacity">
+              <a href="mailto:eudisalvz@gmail.com" className="text-[#9E9E9E] underline underline-offset-2 hover:opacity-70 transition-opacity duration-150">
                 eudisalvz@gmail.com
               </a>
             </Section>
             <SocialRow />
           </div>
-
         </div>
       </div>
 
-      {/* ── MOBILE: <1024px ── */}
-      <div className="lg:hidden">
-        <div className="flex flex-col gap-[30px] mx-auto pt-[50px] pb-[50px]" style={{ width: "342px" }}>
+      {/* ── MOBILE ── */}
+      <div className="lg:hidden w-full px-5 py-[50px]">
+        <div className="flex flex-col gap-[30px] max-w-[342px] mx-auto">
           <div className="animate-fade-up [animation-delay:50ms]">
             <TopBar />
           </div>
           <div className="animate-fade-up [animation-delay:100ms] flex flex-col gap-2">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-[#1a1a1a] border border-[#222] flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-[#1a1a1a] border border-[#222] flex items-center justify-center flex-shrink-0">
                 <span className="text-[#9E9E9E] text-[12px] font-medium">EA</span>
               </div>
               <div>
@@ -95,7 +96,7 @@ export default function Home() {
           <div className="animate-fade-up [animation-delay:250ms]"><Crafting /></div>
           <div className="animate-fade-up [animation-delay:300ms]">
             <Section label="Connect" id="connect">
-              <a href="mailto:eudisalvz@gmail.com" className="text-[#9E9E9E] underline underline-offset-2 hover:opacity-70 transition-opacity">
+              <a href="mailto:eudisalvz@gmail.com" className="text-[#9E9E9E] underline underline-offset-2 hover:opacity-70 transition-opacity duration-150">
                 eudisalvz@gmail.com
               </a>
             </Section>
