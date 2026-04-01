@@ -54,14 +54,14 @@ const socials = [
 
 export default function SocialRow() {
   return (
-    <div className="flex items-center gap-5 h-5">
+    <div className="flex items-center h-5" style={{ gap: "20px" }}>
       {socials.map((s) => (
         <a
           key={s.name}
           href={s.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 transition-opacity duration-150 hover:opacity-70"
+          className="flex items-center transition-opacity duration-150 hover:opacity-70" style={{ gap: "4px" }}
         >
           {s.icon}
           <span className="text-[#9E9E9E] text-[12px] leading-5">{s.count}</span>
