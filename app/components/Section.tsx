@@ -6,9 +6,9 @@ interface SectionProps {
 
 export default function Section({ label, id, children }: SectionProps) {
   return (
-    <div id={id} className="flex flex-col gap-2.5">
-      <span className="text-white text-[12px] leading-5">{label}</span>
-      <div className="text-[#9E9E9E] text-[12px] leading-5">{children}</div>
+    <div id={id} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{label}</span>
+      <div style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{children}</div>
     </div>
   );
 }

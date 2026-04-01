@@ -1,5 +1,5 @@
 const ArrowUpRight = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
     <line x1="7" y1="17" x2="17" y2="7" />
     <polyline points="7 7 17 7 17 17" />
   </svg>
@@ -12,21 +12,13 @@ const projects = [
 
 export default function Crafting() {
   return (
-    <div id="crafting" className="flex flex-col gap-2.5">
-      <span className="text-white text-[12px] leading-5">Crafting</span>
-      <div className="flex flex-col gap-2.5">
+    <div id="crafting" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>Crafting</span>
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {projects.map((p) => (
-          <a
-            key={p.label}
-            href={p.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#9E9E9E", textDecoration: "none" }}
-            className="flex items-center justify-between h-5 hover:opacity-70 transition-opacity duration-150"
-          >
-            <span className="text-[12px] leading-5">
-              {p.label} — {p.tag}
-            </span>
+          <a key={p.label} href={p.href} target="_blank" rel="noopener noreferrer"
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
+            <span>{p.label} — {p.tag}</span>
             <ArrowUpRight />
           </a>
         ))}

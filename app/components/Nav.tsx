@@ -11,16 +11,17 @@ const navItems = [
 
 export default function Nav() {
   const pathname = usePathname();
-
   return (
-    <nav className="flex items-center gap-[30px]">
+    <nav style={{ display: "flex", alignItems: "center", gap: "30px" }}>
       {navItems.map((item) => (
-        <Link
-          key={item.label}
-          href={item.href}
-          style={{ color: pathname === item.href ? "#FFFFFF" : "#9E9E9E" }}
-          className="text-[12px] leading-5 underline underline-offset-2 transition-opacity duration-150 hover:opacity-70 no-underline"
-        >
+        <Link key={item.label} href={item.href}
+          style={{
+            color: pathname === item.href ? "#FFFFFF" : "#9E9E9E",
+            fontSize: "var(--fs-body)",
+            lineHeight: "var(--lh-body)",
+            textDecoration: "underline",
+            textUnderlineOffset: "2px",
+          }}>
           {item.label}
         </Link>
       ))}
