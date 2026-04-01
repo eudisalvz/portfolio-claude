@@ -47,6 +47,7 @@ export default function Home() {
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             padding: 50px 50px 50px 50px;
             overflow: hidden;
           }
@@ -55,7 +56,6 @@ export default function Home() {
             align-items: center;
             justify-content: space-between;
             height: 20px;
-            margin-bottom: 200px;
           }
           .desktop-content {
             display: flex;
