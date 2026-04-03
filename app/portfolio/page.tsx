@@ -92,18 +92,20 @@ export default function Portfolio() {
         {/* MOBILE */}
         <div className="p-mobile">
           <TopBar />
+
+          {/* Avatar + name + role grouped */}
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ color: "#9E9E9E", fontSize: 12, fontWeight: 500 }}>EA</span>
-              </div>
-              <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>UI/UX Designer, Venezuela</span>
-              </div>
+            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ color: "#9E9E9E", fontSize: 12, fontWeight: 500 }}>EA</span>
             </div>
-            <Nav />
+            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI/UX Designer, Venezuela</span>
+            </div>
           </div>
+
+          {/* Nav */}
+          <Nav />
           <div className="p-grid-mobile">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
