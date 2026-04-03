@@ -71,7 +71,14 @@ export default function Home() {
         {/* DESKTOP */}
         <div className="desktop">
           <div className="desktop-photo">
-            <span style={{ color: "#333", fontSize: "13px" }}>photo</span>
+            <video
+              src="/hero.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "20px" }}
+            />
           </div>
           <div className="desktop-right">
             <div className="desktop-topbar">
