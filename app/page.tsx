@@ -124,21 +124,20 @@ export default function Home() {
             <TopBar />
           </div>
 
-          {/* Video */}
-          <div className="animate-fade-up" style={{ animationDelay: "80ms", width: "100%", borderRadius: "12px", overflow: "hidden", aspectRatio: "4/5" }}>
-            <video
-              src="/hero.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+          {/* Avatar */}
+          <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
+            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ color: "#9E9E9E", fontSize: 12, fontWeight: 500 }}>EA</span>
+            </div>
           </div>
 
-          {/* Name + role */}
-          <div className="animate-fade-up" style={{ animationDelay: "100ms", display: "flex", flexDirection: "column", gap: "2px" }}>
+          {/* Name */}
+          <div className="animate-fade-up" style={{ animationDelay: "100ms" }}>
             <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
+          </div>
+
+          {/* Role */}
+          <div className="animate-fade-up" style={{ animationDelay: "110ms" }}>
             <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI/UX Designer, Venezuela</span>
           </div>
 
