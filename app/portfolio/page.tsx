@@ -39,7 +39,7 @@ export default function Portfolio() {
         .p-mobile {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 30px;
           width: 100%;
           padding: 50px 20px;
           box-sizing: border-box;
