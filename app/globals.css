@@ -40,8 +40,8 @@
 
 :root {
   --font-sf: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-  --fs-body: 12px;
-  --lh-body: 20px;
+  --fs-body: 14px;
+  --lh-body: 22px;
 }
 
 @media (min-width: 1024px) {
