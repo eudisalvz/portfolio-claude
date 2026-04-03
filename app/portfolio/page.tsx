@@ -20,7 +20,7 @@ const SocialButtons = () => (
 );
 
 const cardStyle = {
-  height: "250px",
+  aspectRatio: "4 / 3",
   border: "1px solid #1B1B1B",
   borderRadius: "10px",
   background: "#0f0f0f",
