@@ -34,7 +34,7 @@ export default function Portfolio() {
   return (
     <>
       <style>{`
-        .p-layout { min-height: 100vh; background: #0A0A0A; }
+        .p-layout { min-height: 100vh; background: #0A0A0A; overflow-x: hidden; }
         .p-desktop { display: none; }
         .p-mobile {
           display: flex;
@@ -43,6 +43,7 @@ export default function Portfolio() {
           max-width: 350px;
           margin: 0 auto;
           padding: 50px 20px;
+          box-sizing: border-box;
         }
         .p-grid-mobile {
           display: grid;
@@ -55,6 +56,7 @@ export default function Portfolio() {
             display: block;
             width: 100%;
             padding: 50px;
+            box-sizing: border-box;
           }
           .p-topbar {
             display: flex;
@@ -64,8 +66,9 @@ export default function Portfolio() {
           }
           .p-grid-desktop {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
+            width: 100%;
           }
         }
       `}</style>
