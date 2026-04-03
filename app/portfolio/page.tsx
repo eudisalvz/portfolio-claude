@@ -40,8 +40,7 @@ export default function Portfolio() {
           display: flex;
           flex-direction: column;
           gap: 20px;
-          max-width: 350px;
-          margin: 0 auto;
+          width: 100%;
           padding: 50px 20px;
           box-sizing: border-box;
         }

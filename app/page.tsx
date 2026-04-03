@@ -19,9 +19,9 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           gap: 30px;
-          max-width: 342px;
-          margin: 0 auto;
+          width: 100%;
           padding: 50px 20px;
+          box-sizing: border-box;
         }
 
         /* DESKTOP */
