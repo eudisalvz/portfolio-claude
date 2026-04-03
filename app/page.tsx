@@ -95,13 +95,10 @@ export default function Home() {
                 <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>UI/UX Designer, Venezuela</span>
               </div>
               <Section label="About" id="about">
-                I&apos;m Eudis, a web and mobile apps designer from Venezuela.
-                <br /><br />
-                With a background in law, I bring a unique perspective to design,
-                thinking through systems, constraints, and user rights from the ground up.
+                UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
               </Section>
               <Section label="Interests" id="interests">
-                Minimal interfaces, design systems, and the space where aesthetics meets function.
+                Gym, photography, tech and gaming.
               </Section>
               <Crafting />
               <Section label="Connect" id="connect">
@@ -133,15 +130,12 @@ export default function Home() {
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
             <Section label="About" id="about">
-              I&apos;m Eudis, a web and mobile apps designer from Venezuela.
-              <br /><br />
-              With a background in law, I bring a unique perspective to design,
-              thinking through systems, constraints, and user rights from the ground up.
+              UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
             </Section>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "200ms" }}>
             <Section label="Interests" id="interests">
-              Minimal interfaces, design systems, and the space where aesthetics meets function.
+              Gym, photography, tech and gaming.
             </Section>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "250ms" }}><Crafting /></div>

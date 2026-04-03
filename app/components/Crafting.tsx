@@ -6,8 +6,8 @@ const ArrowUpRight = () => (
 );
 
 const projects = [
+  { label: "Cardverse",          tag: "Personal project",   href: "#" },
   { label: "Alamo Algorithmics", tag: "Client work",        href: "#" },
-  { label: "eudisalvarez.com",   tag: "Personal portfolio", href: "https://eudisalvarez.com" },
 ];
 
 export default function Crafting() {
