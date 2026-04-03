@@ -123,16 +123,27 @@ export default function Home() {
           <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
             <TopBar />
           </div>
-          <div className="animate-fade-up" style={{ animationDelay: "100ms", display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ color: "#9E9E9E", fontSize: 12, fontWeight: 500 }}>EA</span>
-              </div>
-              <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>UI/UX Designer, Venezuela</span>
-              </div>
-            </div>
+
+          {/* Video */}
+          <div className="animate-fade-up" style={{ animationDelay: "80ms", width: "100%", borderRadius: "12px", overflow: "hidden", aspectRatio: "4/5" }}>
+            <video
+              src="/hero.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+
+          {/* Name + role */}
+          <div className="animate-fade-up" style={{ animationDelay: "100ms", display: "flex", flexDirection: "column", gap: "2px" }}>
+            <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
+            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI/UX Designer, Venezuela</span>
+          </div>
+
+          {/* Nav */}
+          <div className="animate-fade-up" style={{ animationDelay: "120ms" }}>
             <Nav />
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
