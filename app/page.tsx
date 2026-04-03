@@ -124,21 +124,13 @@ export default function Home() {
             <TopBar />
           </div>
 
-          {/* Avatar */}
-          <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
+          {/* Avatar + name + role grouped */}
+          <div className="animate-fade-up" style={{ animationDelay: "80ms", display: "flex", flexDirection: "column", gap: "8px" }}>
             <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span style={{ color: "#9E9E9E", fontSize: 12, fontWeight: 500 }}>EA</span>
             </div>
-          </div>
-
-          {/* Name */}
-          <div className="animate-fade-up" style={{ animationDelay: "100ms" }}>
-            <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-          </div>
-
-          {/* Role */}
-          <div className="animate-fade-up" style={{ animationDelay: "110ms" }}>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI/UX Designer, Venezuela</span>
+            <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
+            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI/UX Designer, Venezuela</span>
           </div>
 
           {/* Nav */}
