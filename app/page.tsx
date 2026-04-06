@@ -99,7 +99,7 @@ export default function Home() {
             <div className="desktop-content">
               <div>
                 <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>UI/UX Designer, Venezuela</span>
+                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
               </div>
               <Section label="About" id="about">
                 UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
@@ -131,7 +131,7 @@ export default function Home() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
               <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI/UX Designer, Venezuela</span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
             </div>
           </div>
 

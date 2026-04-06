@@ -26,9 +26,9 @@ const Tag = ({ label }: { label: string }) => (
     fontSize: "var(--fs-body)",
     lineHeight: "var(--lh-body)",
     color: "#9E9E9E",
-    border: "1px solid #2a2a2a",
+    background: "#141414",
     borderRadius: "6px",
-    padding: "1px 8px",
+    padding: "0px 5px",
     whiteSpace: "nowrap",
   }}>
     {label}
@@ -42,7 +42,6 @@ const ProjectRow = ({ name, tags, year }: { name: string; tags: string[]; year: 
     justifyContent: "space-between",
     gap: "12px",
     padding: "10px 0",
-    borderBottom: "1px solid #1a1a1a",
     cursor: "pointer",
   }}>
     <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", flex: 1 }}>
