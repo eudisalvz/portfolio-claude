@@ -76,20 +76,25 @@ export default function MobileHeader() {
       }}>
         {navItems.map((item) => (
           <Link key={item.label} href={item.href}
-            style={{ textDecoration: "none" }}>
-            <span style={{
-              color: pathname === item.href ? "#fff" : "#9E9E9E",
-              fontSize: "var(--fs-body)",
-              fontWeight: 500,
-              lineHeight: "var(--lh-body)",
-              display: "block",
-              marginBottom: "4px",
-            }}>
-              {item.label}
-            </span>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
-              {item.desc}
-            </span>
+            style={{ textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div>
+              <span style={{
+                color: pathname === item.href ? "#fff" : "#9E9E9E",
+                fontSize: "var(--fs-body)",
+                fontWeight: 500,
+                lineHeight: "var(--lh-body)",
+                display: "block",
+                marginBottom: "4px",
+              }}>
+                {item.label}
+              </span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
+                {item.desc}
+              </span>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </Link>
         ))}
       </div>
