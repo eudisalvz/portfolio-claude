@@ -22,7 +22,7 @@ const cardStyle: React.CSSProperties = {
   overflow: "hidden",
   cursor: "pointer",
   position: "relative",
-  padding: "10%",
+  padding: "5%",
   boxSizing: "border-box",
   display: "flex",
   alignItems: "center",
