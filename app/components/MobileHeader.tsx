@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,12 +13,40 @@ const navItems = [
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const scrollY = useRef(0);
+
+  useEffect(() => {
+    if (open) {
+      scrollY.current = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY.current}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollY.current);
+    }
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  // Close menu on navigation
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <div style={{ position: "relative", zIndex: 1 }}>
-
-      {/* Header — always visible, single video instance */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", position: "relative", zIndex: 51 }}>
+    <>
+      {/* Always-visible header */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
             <video src="/hero.mp4" autoPlay loop muted playsInline
@@ -47,43 +75,66 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Menu — absolute, expands below header, no fixed positioning */}
+      {/* Menu — fixed overlay, opacity toggle, no mount/unmount */}
       <div style={{
-        position: "absolute",
-        top: "calc(100% + 30px)",
-        left: "-20px",
-        right: "-20px",
+        position: "fixed",
+        top: 0, left: 0, right: 0, bottom: 0,
         background: "#0A0A0A",
-        zIndex: 50,
-        padding: "0 20px 30px",
+        zIndex: 200,
+        padding: "20px",
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
-        gap: "30px",
         opacity: open ? 1 : 0,
         pointerEvents: open ? "auto" : "none",
-        transform: open ? "translateY(0)" : "translateY(-8px)",
-        transition: "opacity 0.2s ease, transform 0.2s ease",
+        transition: "opacity 0.15s ease",
       }}>
-        {navItems.map((item) => (
-          <Link key={item.label} href={item.href} onClick={() => setOpen(false)}
-            style={{ textDecoration: "none" }}>
-            <span style={{
-              color: pathname === item.href ? "#fff" : "#9E9E9E",
-              fontSize: "var(--fs-body)",
-              fontWeight: 500,
-              lineHeight: "var(--lh-body)",
-              display: "block",
-              marginBottom: "4px",
-            }}>
-              {item.label}
-            </span>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
-              {item.desc}
-            </span>
-          </Link>
-        ))}
-      </div>
+        {/* Header inside overlay */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", marginBottom: "30px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#111", flexShrink: 0, overflow: "hidden" }}>
+              <video src="/hero.mp4" autoPlay loop muted playsInline
+                style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
+                <span className="animate-pulse-dot" style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E", display: "inline-block", flexShrink: 0 }} />
+                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "20px" }}>Open for work</span>
+              </div>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
+            </div>
+          </div>
+          <button onClick={() => setOpen(false)}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
 
-    </div>
+        {/* Nav items */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+          {navItems.map((item) => (
+            <Link key={item.label} href={item.href}
+              style={{ textDecoration: "none" }}>
+              <span style={{
+                color: pathname === item.href ? "#fff" : "#9E9E9E",
+                fontSize: "var(--fs-body)",
+                fontWeight: 500,
+                lineHeight: "var(--lh-body)",
+                display: "block",
+                marginBottom: "4px",
+              }}>
+                {item.label}
+              </span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
+                {item.desc}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
