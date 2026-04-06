@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import SocialRow from "./components/SocialRow";
+import ChromaticAvatar from "./components/ChromaticAvatar";
 
 export default function Home() {
   return (
@@ -103,9 +104,7 @@ export default function Home() {
             <TopBar />
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "80ms", display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-              <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
+            <ChromaticAvatar />
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
               <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
               <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
