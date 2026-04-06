@@ -56,11 +56,13 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Menu overlay */}
+      {/* Menu dropdown */}
       {open && (
         <div style={{
           position: "fixed",
-          inset: 0,
+          top: 0,
+          left: 0,
+          right: 0,
           background: "#0A0A0A",
           zIndex: 100,
           display: "flex",
