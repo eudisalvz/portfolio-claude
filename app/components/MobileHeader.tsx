@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,13 +12,31 @@ const navItems = [
 
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const pathname = usePathname();
+  const lastScrollY = useRef(0);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY < 10) {
+        setVisible(true);
+      } else if (currentY > lastScrollY.current) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      {/* Header row — always on top */}
+      {/* Header row — always on top, hides/shows on scroll */}
       <div style={{
         display: "flex",
         alignItems: "center",
@@ -27,6 +45,8 @@ export default function MobileHeader() {
         position: "relative",
         zIndex: 300,
         background: "#0A0A0A",
+        transform: visible ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 0.25s ease",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
@@ -56,23 +76,27 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Menu panel — absolute inside layout, no fixed, no scroll lock */}
+      {/* Menu overlay */}
       <div style={{
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
+        bottom: 0,
         background: "#0A0A0A",
         zIndex: 200,
-        padding: "20px",
-        paddingTop: "94px",
         boxSizing: "border-box",
+        paddingTop: "94px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+        paddingBottom: "20px",
         display: "flex",
         flexDirection: "column",
         gap: "30px",
+        visibility: open ? "visible" : "hidden",
         opacity: open ? 1 : 0,
         pointerEvents: open ? "auto" : "none",
-        transition: "opacity 0.15s ease",
+        transition: "opacity 0.15s ease, visibility 0.15s ease",
       }}>
         {navItems.map((item) => (
           <Link key={item.label} href={item.href}
