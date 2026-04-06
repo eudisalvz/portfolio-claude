@@ -64,7 +64,7 @@ export default function Projects() {
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 50px 20px;
+          padding: 20px;
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {

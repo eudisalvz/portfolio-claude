@@ -65,7 +65,7 @@ export default function MobileHeader() {
           zIndex: 100,
           display: "flex",
           flexDirection: "column",
-          padding: "50px 20px",
+          padding: "20px",
           boxSizing: "border-box",
         }}>
           {/* Header inside menu */}
@@ -74,7 +74,7 @@ export default function MobileHeader() {
             alignItems: "center",
             justifyContent: "space-between",
             width: "100%",
-            marginBottom: "50px",
+            marginBottom: "30px",
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
