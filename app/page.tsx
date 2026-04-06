@@ -1,8 +1,8 @@
-import TopBar from "./components/TopBar";
 import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import SocialRow from "./components/SocialRow";
+import MobileHeader from "./components/MobileHeader";
 
 export default function Home() {
   return (
@@ -99,38 +99,20 @@ export default function Home() {
 
         {/* MOBILE */}
         <div className="mobile">
-          <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
-            <TopBar />
-          </div>
-          <div className="animate-fade-up" style={{ animationDelay: "80ms", display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-              <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
-            </div>
-          </div>
-          <div className="animate-fade-up" style={{ animationDelay: "120ms" }}><Nav /></div>
-          <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
-            <Section label="About" id="about">
-              UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
-            </Section>
-          </div>
-          <div className="animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <Section label="Interests" id="interests">
-              Gym, photography, tech and gaming.
-            </Section>
-          </div>
-          <div className="animate-fade-up" style={{ animationDelay: "250ms" }}><Crafting /></div>
-          <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
-            <Section label="Connect" id="connect">
-              <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                eudisalvz@gmail.com
-              </a>
-            </Section>
-          </div>
-          <div className="animate-fade-up" style={{ animationDelay: "350ms" }}><SocialRow /></div>
+          <MobileHeader />
+          <Section label="About" id="about">
+            UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
+          </Section>
+          <Section label="Interests" id="interests">
+            Gym, photography, tech and gaming.
+          </Section>
+          <Crafting />
+          <Section label="Connect" id="connect">
+            <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              eudisalvz@gmail.com
+            </a>
+          </Section>
+          <SocialRow />
         </div>
 
       </main>

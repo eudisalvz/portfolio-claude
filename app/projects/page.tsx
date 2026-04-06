@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import TopBar from "../components/TopBar";
+import MobileHeader from "../components/MobileHeader";
 import SocialRow from "../components/SocialRow";
 
 const myProjects = [
@@ -167,20 +167,7 @@ export default function Projects() {
 
         {/* MOBILE */}
         <div className="pr-mobile">
-          <TopBar />
-
-          {/* Avatar + name + role */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", overflow: "hidden" }}>
-              <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
-            </div>
-          </div>
-
-          <Nav />
+          <MobileHeader />
 
           {/* My projects */}
           <div>
