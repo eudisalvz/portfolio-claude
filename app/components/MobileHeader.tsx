@@ -18,7 +18,7 @@ export default function MobileHeader() {
 
   return (
     <>
-      {/* Header row — always on top */}
+      {/* Header row — sticky at top, always above overlay */}
       <div style={{
         display: "flex",
         alignItems: "center",
@@ -56,23 +56,29 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Menu panel — absolute inside layout, no fixed, no scroll lock */}
+      {/* Menu — fixed to viewport, no body scroll lock needed */}
       <div style={{
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
+        bottom: 0,
         background: "#0A0A0A",
         zIndex: 200,
-        padding: "20px",
-        paddingTop: "94px",
         boxSizing: "border-box",
+        paddingTop: "94px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+        paddingBottom: "20px",
         display: "flex",
         flexDirection: "column",
         gap: "30px",
+        visibility: open ? "visible" : "hidden",
         opacity: open ? 1 : 0,
         pointerEvents: open ? "auto" : "none",
-        transition: "opacity 0.15s ease",
+        transition: "opacity 0.15s ease, visibility 0.15s ease",
+        overflowY: "auto",
+        WebkitOverflowScrolling: "touch" as any,
       }}>
         {navItems.map((item) => (
           <Link key={item.label} href={item.href}
