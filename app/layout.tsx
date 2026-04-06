@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MobileHeader from "./components/MobileHeader";
 
 export const metadata: Metadata = {
   title: "Eudis Alvarez — Designer",
-  description: "UI/UX Designer from Venezuela. Open for work.",
+  description: "UI/UX Designer · Lawyer. Open for work.",
 };
 
 export default function RootLayout({
@@ -13,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {/* Mobile header lives here so video persists across page navigation */}
+        <div className="mobile-layout-header">
+          <MobileHeader />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

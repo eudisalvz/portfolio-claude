@@ -84,3 +84,15 @@ a {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
+
+.mobile-layout-header {
+  display: block;
+  padding: 20px 20px 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .mobile-layout-header {
+    display: none;
+  }
+}

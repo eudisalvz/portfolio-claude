@@ -1,5 +1,4 @@
 import Nav from "../components/Nav";
-import MobileHeader from "../components/MobileHeader";
 import SocialRow from "../components/SocialRow";
 
 const myProjects = [
@@ -167,7 +166,6 @@ export default function Projects() {
 
         {/* MOBILE */}
         <div className="pr-mobile">
-          <MobileHeader />
 
           {/* My projects */}
           <div>

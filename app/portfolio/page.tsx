@@ -1,5 +1,4 @@
 import Nav from "../components/Nav";
-import MobileHeader from "../components/MobileHeader";
 
 const cards = Array.from({ length: 9 }, (_, i) => ({ id: i + 1 }));
 
@@ -91,7 +90,6 @@ export default function Portfolio() {
 
         {/* MOBILE */}
         <div className="p-mobile">
-          <MobileHeader />
           <div className="p-grid-mobile">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>

@@ -2,7 +2,6 @@ import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import SocialRow from "./components/SocialRow";
-import MobileHeader from "./components/MobileHeader";
 
 export default function Home() {
   return (
@@ -99,7 +98,6 @@ export default function Home() {
 
         {/* MOBILE */}
         <div className="mobile">
-          <MobileHeader />
           <Section label="About" id="about">
             UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
           </Section>
