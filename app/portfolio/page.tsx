@@ -3,15 +3,15 @@ import SocialRow from "../components/SocialRow";
 import BackToTop from "../components/BackToTop";
 
 const cards = [
-  { id: 1, src: "/img1.png", scale: 0.60 },
-  { id: 2, src: "/img2.png", scale: 0.70 },
-  { id: 3, src: "/img3.png", scale: 0.75 },
-  { id: 4, src: "/img4.png", scale: 0.65 },
-  { id: 5, src: "/img5.png", scale: 0.60 },
-  { id: 6, src: "/img6.png", scale: 0.70 },
-  { id: 7, src: "/img7.png", scale: 0.75 },
-  { id: 8, src: "/img8.png", scale: 0.72 },
-  { id: 9, src: "/img9.png", scale: 0.70 },
+  { id: 1, src: "/img1.png", position: "center center" },
+  { id: 2, src: "/img2.png", position: "center center" },
+  { id: 3, src: "/img3.png", position: "center center" },
+  { id: 4, src: "/img4.png", position: "center center" },
+  { id: 5, src: "/img5.png", position: "center center" },
+  { id: 6, src: "/img6.png", position: "center center" },
+  { id: 7, src: "/img7.png", position: "center center" },
+  { id: 8, src: "/img8.png", position: "center center" },
+  { id: 9, src: "/img9.png", position: "center center" },
 ];
 
 const cardStyle: React.CSSProperties = {
@@ -77,7 +77,7 @@ export default function Portfolio() {
           <div className="p-grid-desktop">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
-                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", transform: `scale(${card.scale})`, background: "#0f0f0f" }} />
+                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: card.position }} />
               </div>
             ))}
           </div>
@@ -88,7 +88,7 @@ export default function Portfolio() {
           <div className="p-grid-mobile">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
-                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", transform: `scale(${card.scale})`, background: "#0f0f0f" }} />
+                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: card.position }} />
               </div>
             ))}
           </div>
