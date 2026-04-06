@@ -3,18 +3,12 @@ import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import SocialRow from "./components/SocialRow";
-import Typewriter from "./components/Typewriter";
 
 export default function Home() {
   return (
     <>
       <style>{`
-        .layout {
-          min-height: 100vh;
-          background: #0A0A0A;
-        }
-
-        /* MOBILE */
+        .layout { min-height: 100vh; background: #0A0A0A; }
         .desktop { display: none; }
         .mobile {
           display: flex;
@@ -24,32 +18,22 @@ export default function Home() {
           padding: 50px 20px;
           box-sizing: border-box;
         }
-
-        /* DESKTOP */
         @media (min-width: 1024px) {
           .mobile { display: none; }
-          .desktop {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            min-height: 700px;
-          }
+          .desktop { display: flex; width: 100%; height: 100vh; }
           .desktop-photo {
             flex-shrink: 0;
             width: 40%;
             margin: 50px 0 50px 50px;
             border-radius: 20px;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
           }
           .desktop-right {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 50px 50px 50px 50px;
+            padding: 50px;
             overflow: hidden;
           }
           .desktop-topbar {
@@ -72,50 +56,40 @@ export default function Home() {
         {/* DESKTOP */}
         <div className="desktop">
           <div className="desktop-photo">
-            <video
-              src="/hero.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "20px" }}
-            />
+            <video src="/hero.mp4" autoPlay loop muted playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div className="desktop-right">
             <div className="desktop-topbar">
               <div style={{ display: "flex", alignItems: "center", gap: "30px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <span className="animate-pulse-dot" style={{ width: 8, height: 8, borderRadius: "50%", background: "#22C55E", display: "inline-block", flexShrink: 0 }} />
-                  <span style={{ color: "#fff", fontSize: 12, lineHeight: "20px" }}>Open for work</span>
+                  <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Open for work</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
                   </svg>
-                  <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px" }}>1.2k</span>
+                  <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)" }}>1.2k</span>
                 </div>
               </div>
               <Nav />
             </div>
             <div className="desktop-content">
               <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>
-                  <Typewriter text="Eudis Alvarez" startDelay={200} />
-                </span>
-                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>
-                  <Typewriter text="UI / UX Designer · Lawyer" startDelay={600} />
-                </span>
+                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
+                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
               </div>
               <Section label="About" id="about">
-                <Typewriter text="UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences." startDelay={1000} />
+                UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
               </Section>
               <Section label="Interests" id="interests">
-                <Typewriter text="Gym, photography, tech and gaming." startDelay={1600} />
+                Gym, photography, tech and gaming.
               </Section>
               <Crafting />
               <Section label="Connect" id="connect">
                 <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                  <Typewriter text="eudisalvz@gmail.com" startDelay={2200} />
+                  eudisalvz@gmail.com
                 </a>
               </Section>
               <SocialRow />
@@ -128,41 +102,31 @@ export default function Home() {
           <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
             <TopBar />
           </div>
-
-          {/* Avatar + name + role grouped */}
           <div className="animate-fade-up" style={{ animationDelay: "80ms", display: "flex", flexDirection: "column", gap: "8px" }}>
             <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
               <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>
-                <Typewriter text="Eudis Alvarez" startDelay={200} />
-              </span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-                <Typewriter text="UI / UX Designer · Lawyer" startDelay={600} />
-              </span>
+              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
             </div>
           </div>
-
-          {/* Nav */}
-          <div className="animate-fade-up" style={{ animationDelay: "120ms" }}>
-            <Nav />
-          </div>
+          <div className="animate-fade-up" style={{ animationDelay: "120ms" }}><Nav /></div>
           <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
             <Section label="About" id="about">
-              <Typewriter text="UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences." startDelay={1000} />
+              UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
             </Section>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "200ms" }}>
             <Section label="Interests" id="interests">
-              <Typewriter text="Gym, photography, tech and gaming." startDelay={1600} />
+              Gym, photography, tech and gaming.
             </Section>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "250ms" }}><Crafting /></div>
           <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
             <Section label="Connect" id="connect">
               <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                <Typewriter text="eudisalvz@gmail.com" startDelay={2200} />
+                eudisalvz@gmail.com
               </a>
             </Section>
           </div>
