@@ -97,9 +97,9 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "10px" }}>
-            <span style={{ color: "#fff", fontSize: 12, lineHeight: "20px", textTransform: "uppercase" }}>Crafting</span>
-            <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", textDecoration: "underline", textUnderlineOffset: "2px", textTransform: "uppercase" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>Connect</span>
+            <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
               eudisalvz@gmail.com
             </a>
             <SocialButtons />
