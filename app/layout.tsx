@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import MobileHeader from "./components/MobileHeader";
+import ScrollHeader from "./components/ScrollHeader";
 
 export const metadata: Metadata = {
   title: "Eudis Alvarez — Designer",
@@ -15,10 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Mobile header lives here so video persists across page navigation */}
-        <div className="mobile-layout-header" style={{ position: "sticky", top: 0, zIndex: 300, background: "#0A0A0A", overflow: "hidden" }}>
-          <MobileHeader />
+        {/* Fixed mobile header — hidden on desktop via CSS */}
+        <div className="mobile-layout-header">
+          <ScrollHeader />
         </div>
+        {/* Spacer so content doesn't go under fixed header on mobile */}
+        <div className="mobile-header-spacer" />
         {children}
       </body>
     </html>

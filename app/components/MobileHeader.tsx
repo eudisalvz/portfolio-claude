@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,41 +12,18 @@ const navItems = [
 
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
   const pathname = usePathname();
-  const lastScrollY = useRef(0);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      if (currentY < 10) {
-        setVisible(true);
-      } else if (currentY > lastScrollY.current) {
-        setVisible(false);
-      } else {
-        setVisible(true);
-      }
-      lastScrollY.current = currentY;
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <>
-      {/* Header row — always on top, hides/shows on scroll */}
       <div style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         width: "100%",
-        position: "relative",
-        zIndex: 300,
         background: "#0A0A0A",
-        transform: visible ? "translateY(0)" : "translateY(-100%)",
-        transition: "transform 0.25s ease",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
@@ -63,7 +40,7 @@ export default function MobileHeader() {
           </div>
         </div>
         <button onClick={() => setOpen(!open)}
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0, position: "relative", zIndex: 301 }}>
           {open ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -79,17 +56,14 @@ export default function MobileHeader() {
       {/* Menu overlay */}
       <div style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: 0, left: 0, right: 0, bottom: 0,
         background: "#0A0A0A",
         zIndex: 200,
-        boxSizing: "border-box",
         paddingTop: "94px",
         paddingLeft: "20px",
         paddingRight: "20px",
         paddingBottom: "20px",
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
         gap: "30px",
