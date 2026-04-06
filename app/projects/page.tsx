@@ -45,7 +45,7 @@ const ProjectRow = ({ name, tags, year }: { name: string; tags: string[]; year: 
     cursor: "pointer",
   }}>
     <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", flex: 1 }}>
-      <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{name}</span>
+      <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{name}</span>
       {tags.map(t => <Tag key={t} label={t} />)}
       <Tag label={year} />
     </div>
