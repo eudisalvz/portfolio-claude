@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import SocialRow from "../components/SocialRow";
+import BackToTop from "../components/BackToTop";
 
 const cards = Array.from({ length: 9 }, (_, i) => ({ id: i + 1 }));
 
@@ -90,6 +91,8 @@ export default function Portfolio() {
             <SocialRow />
           </div>
         </div>
+
+        <BackToTop />
 
       </main>
     </>
