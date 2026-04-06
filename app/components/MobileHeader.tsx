@@ -13,10 +13,8 @@ const navItems = [
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollY = useRef(0);
 
-  // Lock scroll on open, restore on close
   useEffect(() => {
     if (open) {
       scrollY.current = window.scrollY;
@@ -39,10 +37,17 @@ export default function MobileHeader() {
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <div ref={wrapperRef} style={{ position: "relative" }}>
-
-      {/* Header row */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+    <>
+      {/* Header — sits above overlay via z-index */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "100%",
+        position: "relative",
+        zIndex: 300,
+        background: "#0A0A0A",
+      }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
             <video src="/hero.mp4" autoPlay loop muted playsInline
@@ -58,7 +63,7 @@ export default function MobileHeader() {
           </div>
         </div>
         <button onClick={() => setOpen(!open)}
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0, position: "relative", zIndex: 201 }}>
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
           {open ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -71,7 +76,7 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Overlay — uses same 20px padding as layout, top:0 aligned to viewport */}
+      {/* Menu — slides down from below the header, no duplicate header */}
       <div style={{
         position: "fixed",
         top: 0,
@@ -81,61 +86,36 @@ export default function MobileHeader() {
         background: "#0A0A0A",
         zIndex: 200,
         boxSizing: "border-box",
+        // Push nav items down to clear the header: 20px top padding + ~44px header height + 30px gap
+        paddingTop: "94px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
         display: "flex",
         flexDirection: "column",
+        gap: "30px",
         opacity: open ? 1 : 0,
         pointerEvents: open ? "auto" : "none",
         transition: "opacity 0.15s ease",
-        // Padding matches layout: 20px top, 20px sides
-        paddingTop: "20px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
       }}>
-        {/* Header replica — identical markup and sizing to outside */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", marginBottom: "30px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#0A0A0A", flexShrink: 0 }} />
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-                <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E", display: "inline-block", flexShrink: 0 }} />
-                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "20px" }}>Open for work</span>
-              </div>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
-            </div>
-          </div>
-          {/* Close button — same position as hamburger */}
-          <button onClick={() => setOpen(false)}
-            style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Nav items */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
-          {navItems.map((item) => (
-            <Link key={item.label} href={item.href}
-              style={{ textDecoration: "none" }}>
-              <span style={{
-                color: pathname === item.href ? "#fff" : "#9E9E9E",
-                fontSize: "var(--fs-body)",
-                fontWeight: 500,
-                lineHeight: "var(--lh-body)",
-                display: "block",
-                marginBottom: "4px",
-              }}>
-                {item.label}
-              </span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
-                {item.desc}
-              </span>
-            </Link>
-          ))}
-        </div>
+        {navItems.map((item) => (
+          <Link key={item.label} href={item.href}
+            style={{ textDecoration: "none" }}>
+            <span style={{
+              color: pathname === item.href ? "#fff" : "#9E9E9E",
+              fontSize: "var(--fs-body)",
+              fontWeight: 500,
+              lineHeight: "var(--lh-body)",
+              display: "block",
+              marginBottom: "4px",
+            }}>
+              {item.label}
+            </span>
+            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
+              {item.desc}
+            </span>
+          </Link>
+        ))}
       </div>
-
-    </div>
+    </>
   );
 }
