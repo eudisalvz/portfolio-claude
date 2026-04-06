@@ -13,39 +13,35 @@ const navItems = [
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollY = useRef(0);
 
+  // Lock scroll on open, restore on close
   useEffect(() => {
     if (open) {
       scrollY.current = window.scrollY;
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY.current}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.overflow = "hidden";
+      document.body.style.width = "100%";
     } else {
       document.body.style.position = "";
       document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.overflow = "";
+      document.body.style.width = "";
       window.scrollTo(0, scrollY.current);
     }
     return () => {
       document.body.style.position = "";
       document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.overflow = "";
+      document.body.style.width = "";
     };
   }, [open]);
 
-  // Close menu on navigation
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <>
-      {/* Always-visible header */}
+    <div ref={wrapperRef} style={{ position: "relative" }}>
+
+      {/* Header row */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
@@ -62,7 +58,7 @@ export default function MobileHeader() {
           </div>
         </div>
         <button onClick={() => setOpen(!open)}
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0, position: "relative", zIndex: 201 }}>
           {open ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -75,36 +71,40 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Menu — fixed overlay, opacity toggle, no mount/unmount */}
+      {/* Overlay — uses same 20px padding as layout, top:0 aligned to viewport */}
       <div style={{
         position: "fixed",
-        top: 0, left: 0, right: 0, bottom: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         background: "#0A0A0A",
         zIndex: 200,
-        padding: "20px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
         opacity: open ? 1 : 0,
         pointerEvents: open ? "auto" : "none",
         transition: "opacity 0.15s ease",
+        // Padding matches layout: 20px top, 20px sides
+        paddingTop: "20px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
       }}>
-        {/* Header inside overlay */}
+        {/* Header replica — identical markup and sizing to outside */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", marginBottom: "30px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#111", flexShrink: 0, overflow: "hidden" }}>
-              <video src="/hero.mp4" autoPlay loop muted playsInline
-                style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
+            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#0A0A0A", flexShrink: 0 }} />
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-                <span className="animate-pulse-dot" style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E", display: "inline-block", flexShrink: 0 }} />
+                <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E", display: "inline-block", flexShrink: 0 }} />
                 <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "20px" }}>Open for work</span>
               </div>
               <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
             </div>
           </div>
+          {/* Close button — same position as hamburger */}
           <button onClick={() => setOpen(false)}
             style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
@@ -135,6 +135,7 @@ export default function MobileHeader() {
           ))}
         </div>
       </div>
-    </>
+
+    </div>
   );
 }
