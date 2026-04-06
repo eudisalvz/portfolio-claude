@@ -126,8 +126,8 @@ export default function Home() {
 
           {/* Avatar + name + role grouped */}
           <div className="animate-fade-up" style={{ animationDelay: "80ms", display: "flex", flexDirection: "column", gap: "8px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: "#1a1a1a", border: "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ color: "#9E9E9E", fontSize: 12, fontWeight: 500 }}>EA</span>
+            <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
+              <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
               <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
