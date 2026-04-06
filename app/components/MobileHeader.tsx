@@ -62,7 +62,6 @@ export default function MobileHeader() {
         top: 0,
         left: 0,
         right: 0,
-        height: "100dvh",
         background: "#0A0A0A",
         zIndex: 200,
         padding: "20px",
