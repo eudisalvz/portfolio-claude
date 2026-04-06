@@ -100,13 +100,3 @@ a {
     display: none;
   }
 }
-
-.mobile-header-spacer {
-  display: block;
-  height: 76px; /* 20px padding + ~56px header height */
-}
-
-@media (min-width: 1024px) {
-  .mobile-layout-header { display: none; }
-  .mobile-header-spacer  { display: none; }
-}
