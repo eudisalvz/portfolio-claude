@@ -5,23 +5,9 @@ const ArrowUpRight = () => (
   </svg>
 );
 
-const Tag = ({ label }: { label: string }) => (
-  <span style={{
-    fontSize: "var(--fs-body)",
-    lineHeight: "var(--lh-body)",
-    color: "#9E9E9E",
-    background: "#141414",
-    borderRadius: "6px",
-    padding: "0px 5px",
-    whiteSpace: "nowrap",
-  }}>
-    {label}
-  </span>
-);
-
 const projects = [
-  { label: "Cardverse",          tag: "Personal project", href: "#" },
-  { label: "Alamo Algorithmics", tag: "Client work",      href: "#" },
+  { label: "Cardverse",          href: "#" },
+  { label: "Alamo Algorithmics", href: "#" },
 ];
 
 export default function Crafting() {
@@ -31,11 +17,8 @@ export default function Crafting() {
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {projects.map((p) => (
           <a key={p.label} href={p.href} target="_blank" rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{p.label}</span>
-              <Tag label={p.tag} />
-            </div>
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{p.label}</span>
             <ArrowUpRight />
           </a>
         ))}
