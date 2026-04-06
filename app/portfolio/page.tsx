@@ -2,17 +2,26 @@ import Nav from "../components/Nav";
 import SocialRow from "../components/SocialRow";
 import BackToTop from "../components/BackToTop";
 
-const cards = Array.from({ length: 9 }, (_, i) => ({ id: i + 1 }));
+const cards = [
+  { id: 1, src: "/img1.png" },
+  { id: 2, src: "/img2.png" },
+  { id: 3, src: "/img3.png" },
+  { id: 4, src: "/img4.png" },
+  { id: 5, src: "/img5.png" },
+  { id: 6, src: "/img6.png" },
+  { id: 7, src: "/img7.png" },
+  { id: 8, src: "/img8.png" },
+  { id: 9, src: "/img9.png" },
+];
 
-const cardStyle = {
+const cardStyle: React.CSSProperties = {
   aspectRatio: "4 / 3",
   border: "1px solid #1B1B1B",
   borderRadius: "10px",
   background: "#0f0f0f",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  overflow: "hidden",
   cursor: "pointer",
+  position: "relative",
 };
 
 export default function Portfolio() {
@@ -68,7 +77,7 @@ export default function Portfolio() {
           <div className="p-grid-desktop">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
-                <span style={{ color: "#222", fontSize: 11 }}>project {card.id}</span>
+                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             ))}
           </div>
@@ -79,7 +88,7 @@ export default function Portfolio() {
           <div className="p-grid-mobile">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
-                <span style={{ color: "#222", fontSize: 11 }}>project {card.id}</span>
+                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             ))}
           </div>
