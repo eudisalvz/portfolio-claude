@@ -9,7 +9,7 @@ const cards = [
   { id: 4, src: "/img4.png", position: "center center" },
   { id: 5, src: "/img5.png", position: "center center" },
   { id: 6, src: "/img6.png", position: "center center" },
-  { id: 7, src: "/img7.png", position: "center center" },
+  { id: 7, src: "/img7.png", position: "center center", padding: "0" },
   { id: 8, src: "/img8.png", position: "center center" },
   { id: 9, src: "/img9.png", position: "center center" },
 ];
@@ -81,7 +81,7 @@ export default function Portfolio() {
           </div>
           <div className="p-grid-desktop">
             {cards.map((card) => (
-              <div key={card.id} style={cardStyle}>
+              <div key={card.id} style={{ ...cardStyle, padding: card.padding ?? "5%" }}>
                 <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
             ))}
@@ -92,7 +92,7 @@ export default function Portfolio() {
         <div className="p-mobile">
           <div className="p-grid-mobile">
             {cards.map((card) => (
-              <div key={card.id} style={cardStyle}>
+              <div key={card.id} style={{ ...cardStyle, padding: card.padding ?? "5%" }}>
                 <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
             ))}
