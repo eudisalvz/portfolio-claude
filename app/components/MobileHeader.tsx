@@ -15,10 +15,10 @@ export default function MobileHeader() {
   const pathname = usePathname();
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", zIndex: 1 }}>
 
       {/* Header — always visible, single video instance */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", position: "relative", zIndex: 51 }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
             <video src="/hero.mp4" autoPlay loop muted playsInline
