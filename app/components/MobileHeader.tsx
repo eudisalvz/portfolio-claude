@@ -25,7 +25,7 @@ export default function MobileHeader() {
       }}>
         {/* Left: avatar + name + badge */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <div style={{ width: 44, height: 44, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
+          <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
             <video src="/hero.mp4" autoPlay loop muted playsInline
               style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
@@ -77,7 +77,7 @@ export default function MobileHeader() {
             marginBottom: "50px",
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: 44, height: 44, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
+              <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
                 <video src="/hero.mp4" autoPlay loop muted playsInline
                   style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
@@ -105,9 +105,9 @@ export default function MobileHeader() {
                 style={{ textDecoration: "none" }}>
                 <span style={{
                   color: pathname === item.href ? "#fff" : "#9E9E9E",
-                  fontSize: 16,
+                  fontSize: "var(--fs-body)",
                   fontWeight: 500,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-body)",
                   display: "block",
                   marginBottom: "4px",
                 }}>
