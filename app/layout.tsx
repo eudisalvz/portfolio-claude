@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* Mobile header lives here so video persists across page navigation */}
-        <div className="mobile-layout-header">
+        <div className="mobile-layout-header" style={{ position: "relative" }}>
           <MobileHeader />
         </div>
         {children}

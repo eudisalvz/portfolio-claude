@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,32 +13,12 @@ const navItems = [
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const scrollY = useRef(0);
-
-  useEffect(() => {
-    if (open) {
-      scrollY.current = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY.current}px`;
-      document.body.style.width = "100%";
-    } else {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      window.scrollTo(0, scrollY.current);
-    }
-    return () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-    };
-  }, [open]);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
     <>
-      {/* Header — sits above overlay via z-index */}
+      {/* Header row — always on top */}
       <div style={{
         display: "flex",
         alignItems: "center",
@@ -76,20 +56,18 @@ export default function MobileHeader() {
         </button>
       </div>
 
-      {/* Menu — slides down from below the header, no duplicate header */}
+      {/* Menu panel — absolute inside layout, no fixed, no scroll lock */}
       <div style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         right: 0,
-        bottom: 0,
+        height: "100dvh",
         background: "#0A0A0A",
         zIndex: 200,
-        boxSizing: "border-box",
-        // Push nav items down to clear the header: 20px top padding + ~44px header height + 30px gap
+        padding: "20px",
         paddingTop: "94px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
         gap: "30px",
