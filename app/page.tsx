@@ -98,6 +98,11 @@ export default function Home() {
 
         {/* MOBILE */}
         <div className="mobile">
+          {/* Hero video — full width, above About */}
+          <div style={{ width: "100%", borderRadius: "12px", overflow: "hidden", aspectRatio: "4/5" }}>
+            <video src="/hero.mp4" autoPlay loop muted playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          </div>
           <Section label="About" id="about">
             UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
           </Section>
