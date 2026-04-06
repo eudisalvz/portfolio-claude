@@ -77,7 +77,7 @@ export default function Portfolio() {
           <div className="p-grid-desktop">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
-                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", transform: "scale(0.7)", background: "#0f0f0f" }} />
               </div>
             ))}
           </div>
@@ -88,7 +88,7 @@ export default function Portfolio() {
           <div className="p-grid-mobile">
             {cards.map((card) => (
               <div key={card.id} style={cardStyle}>
-                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", transform: "scale(0.7)", background: "#0f0f0f" }} />
               </div>
             ))}
           </div>
