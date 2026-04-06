@@ -18,7 +18,7 @@ const cardStyle: React.CSSProperties = {
   aspectRatio: "4 / 3",
   border: "1px solid #1B1B1B",
   borderRadius: "10px",
-  background: "#0f0f0f",
+  background: "#0A0A0A",
   overflow: "hidden",
   cursor: "pointer",
   position: "relative",
