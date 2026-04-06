@@ -89,7 +89,7 @@ export default function Projects() {
             flex-direction: column;
             justify-content: space-between;
             padding: 50px 50px 50px 50px;
-            overflow-y: auto;
+            overflow: hidden;
           }
           .pr-topbar {
             display: flex;
@@ -101,7 +101,7 @@ export default function Projects() {
             display: flex;
             flex-direction: column;
             gap: 30px;
-            max-width: 420px;
+            max-width: 342px;
           }
         }
       `}</style>
