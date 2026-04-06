@@ -1,6 +1,7 @@
 import Nav from "../components/Nav";
 import TopBar from "../components/TopBar";
 import SocialRow from "../components/SocialRow";
+import Typewriter from "../components/Typewriter";
 
 const myProjects = [
   { name: "Cardverse",          tags: ["App"],          year: "Q2 2026" },
@@ -137,8 +138,12 @@ export default function Projects() {
             <div className="pr-content">
               {/* Name + role */}
               <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
+                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>
+                  <Typewriter text="Eudis Alvarez" startDelay={200} />
+                </span>
+                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
+                  <Typewriter text="UI / UX Designer · Lawyer" startDelay={600} />
+                </span>
               </div>
 
               {/* My projects */}
@@ -175,8 +180,12 @@ export default function Projects() {
               <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
+              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>
+                <Typewriter text="Eudis Alvarez" startDelay={200} />
+              </span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
+                <Typewriter text="UI / UX Designer · Lawyer" startDelay={600} />
+              </span>
             </div>
           </div>
 

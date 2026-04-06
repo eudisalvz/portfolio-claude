@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import SocialRow from "./components/SocialRow";
+import Typewriter from "./components/Typewriter";
 
 export default function Home() {
   return (
@@ -98,19 +99,23 @@ export default function Home() {
             </div>
             <div className="desktop-content">
               <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
+                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>
+                  <Typewriter text="Eudis Alvarez" startDelay={200} />
+                </span>
+                <span style={{ color: "#9E9E9E", fontSize: 12, lineHeight: "20px", display: "block" }}>
+                  <Typewriter text="UI / UX Designer · Lawyer" startDelay={600} />
+                </span>
               </div>
               <Section label="About" id="about">
-                UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
+                <Typewriter text="UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences." startDelay={1000} />
               </Section>
               <Section label="Interests" id="interests">
-                Gym, photography, tech and gaming.
+                <Typewriter text="Gym, photography, tech and gaming." startDelay={1600} />
               </Section>
               <Crafting />
               <Section label="Connect" id="connect">
                 <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                  eudisalvz@gmail.com
+                  <Typewriter text="eudisalvz@gmail.com" startDelay={2200} />
                 </a>
               </Section>
               <SocialRow />
@@ -130,8 +135,12 @@ export default function Home() {
               <video src="/hero.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>UI / UX Designer · Lawyer</span>
+              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>
+                <Typewriter text="Eudis Alvarez" startDelay={200} />
+              </span>
+              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
+                <Typewriter text="UI / UX Designer · Lawyer" startDelay={600} />
+              </span>
             </div>
           </div>
 
@@ -141,19 +150,19 @@ export default function Home() {
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
             <Section label="About" id="about">
-              UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
+              <Typewriter text="UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences." startDelay={1000} />
             </Section>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "200ms" }}>
             <Section label="Interests" id="interests">
-              Gym, photography, tech and gaming.
+              <Typewriter text="Gym, photography, tech and gaming." startDelay={1600} />
             </Section>
           </div>
           <div className="animate-fade-up" style={{ animationDelay: "250ms" }}><Crafting /></div>
           <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
             <Section label="Connect" id="connect">
               <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                eudisalvz@gmail.com
+                <Typewriter text="eudisalvz@gmail.com" startDelay={2200} />
               </a>
             </Section>
           </div>
