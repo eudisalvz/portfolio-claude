@@ -151,8 +151,8 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           {/* Connect */}
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudisalvz@gmail.com
+            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              eudis.vah@gmail.com
             </a>
             <SocialRow />
           </div>
@@ -204,8 +204,8 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           {/* Connect */}
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudisalvz@gmail.com
+            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              eudis.vah@gmail.com
             </a>
             <SocialRow />
           </div>

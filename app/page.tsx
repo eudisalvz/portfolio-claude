@@ -87,8 +87,8 @@ export default function Home() {
               </Section>
               <Crafting />
               <Section label="Connect" id="connect">
-                <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                  eudisalvz@gmail.com
+                <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+                  eudis.vah@gmail.com
                 </a>
               </Section>
               <SocialRow />
@@ -111,8 +111,8 @@ export default function Home() {
           </Section>
           <Crafting />
           <Section label="Connect" id="connect">
-            <a href="mailto:eudisalvz@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudisalvz@gmail.com
+            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              eudis.vah@gmail.com
             </a>
           </Section>
           <SocialRow />
