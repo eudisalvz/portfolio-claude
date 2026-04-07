@@ -30,8 +30,7 @@ export default function MobileHeader() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-            <video src="/hero.mp4" autoPlay loop muted playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src="/pfp.jpg" alt="Eudis Alvarez" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
