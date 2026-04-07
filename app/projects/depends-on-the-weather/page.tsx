@@ -4,7 +4,6 @@ export default function DependsOnTheWeather() {
   return (
     <CaseStudy
       name="Depends on the Weather"
-      slug="depends-on-the-weather"
       tags={["App", "2025"]}
       overview="Depends on the Weather is an outdoor activity app that tells you the best time of day to do what you love based on real-time weather data."
       problem="The original design covered the basics but lacked depth. Weather data was presented as plain numbers with no visual hierarchy, and the activity planning flow required too many steps to get to a useful answer."

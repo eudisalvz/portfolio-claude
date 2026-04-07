@@ -4,7 +4,6 @@ export default function MightyShieldInsurance() {
   return (
     <CaseStudy
       name="Mighty Shield Insurance"
-      slug="mighty-shield-insurance"
       tags={["Web page", "2024"]}
       overview="Mighty Shield Insurance is a US-based insurance brokerage firm connecting clients with the right coverage for their needs."
       problem="As a brokerage operating in a trust-sensitive industry, their digital presence needed to communicate credibility and professionalism from the first visit."

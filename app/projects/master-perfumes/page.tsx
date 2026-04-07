@@ -4,7 +4,6 @@ export default function MasterPerfumes() {
   return (
     <CaseStudy
       name="Master Perfumes"
-      slug="master-perfumes"
       tags={["Ecommerce", "2025"]}
       overview="Master Perfumes is a premium fragrance e-commerce brand looking to elevate their digital presence to match the quality of their products."
       problem="The existing flows felt generic and did not communicate the brand's premium positioning. The purchase journey had unnecessary friction points that were impacting conversions."

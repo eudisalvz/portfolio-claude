@@ -4,7 +4,6 @@ export default function TorqApp() {
   return (
     <CaseStudy
       name="Torq app"
-      slug="torq-app"
       tags={["App", "2024"]}
       overview="Torq is a mobile and web platform built for contractors in the United States. It centralizes estimates, invoices, team management, and a map-based network of suppliers with exclusive discounts — all in one place."
       problem="Contractors were juggling multiple disconnected tools to run their business. The existing mobile app lacked the depth and polish needed to compete in a market where trust and professionalism are everything."
