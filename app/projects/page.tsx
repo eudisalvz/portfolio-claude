@@ -3,8 +3,8 @@ import SocialRow from "../components/SocialRow";
 import Link from "next/link";
 
 const myProjects = [
-  { name: "Cardverse",          tags: ["App"],           year: "Q2 2026", href: "#",  icon: "arrow" as const },
-  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024",   href: "#",  icon: "arrow" as const },
+  { name: "Cardverse",          tags: ["App"],           year: "Q2 2026", href: "https://www.cardverse.io/",           icon: "arrow" as const },
+  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024",   href: "https://www.alamoalgorithmics.com/", icon: "arrow" as const },
 ];
 
 const clientProjects = [

@@ -6,8 +6,8 @@ const ArrowUpRight = () => (
 );
 
 const projects = [
-  { label: "Cardverse",          href: "#" },
-  { label: "Alamo Algorithmics", href: "#" },
+  { label: "Cardverse",          href: "https://www.cardverse.io/" },
+  { label: "Alamo Algorithmics", href: "https://www.alamoalgorithmics.com/" },
 ];
 
 export default function Crafting() {
