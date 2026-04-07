@@ -12,7 +12,6 @@ const clientProjects = [
   { name: "Master Perfumes",        tags: ["Ecommerce"], year: "2025", href: "/projects/master-perfumes" },
   { name: "Decision Point Weather", tags: ["SaaS"],      year: "2025", href: "/projects/decision-point-weather" },
   { name: "Torq app",               tags: ["App"],       year: "2024", href: "/projects/torq-app" },
-  { name: "Mighty shield insurance",tags: ["Web page"],  year: "2024", href: "/projects/mighty-shield-insurance" },
 ];
 
 const ChevronRight = () => (
