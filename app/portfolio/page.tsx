@@ -14,6 +14,7 @@ const cards = [
   { id: 9,  src: "/img8.png",      position: "center center" },
   { id: 10, src: "/dpw-img2.png",  position: "center center" },
   { id: 11, src: "/dpw-img4.png",  position: "center center" },
+  { id: 12, src: "/dpw-img1.png",  position: "center center" },
 ];
 
 const cardStyle: React.CSSProperties = {
