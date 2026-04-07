@@ -3,15 +3,15 @@ import SocialRow from "../components/SocialRow";
 import BackToTop from "../components/BackToTop";
 
 const cards = [
-  { id: 1, src: "/img1.png", position: "center center" },
-  { id: 2, src: "/img2.png", position: "center center" },
-  { id: 3, src: "/img3.png", position: "center center" },
-  { id: 4, src: "/img4.png", position: "center center" },
-  { id: 5, src: "/img5.png", position: "center center" },
-  { id: 6, src: "/img6.png", position: "center center" },
-  { id: 7, src: "/img7.png", position: "center center", padding: "0" },
-  { id: 8, src: "/img8.png", position: "center center" },
-  { id: 9, src: "/img9.png", position: "center center" },
+  { id: 1, src: "/dow-img1.png",  position: "center center" },
+  { id: 2, src: "/dow-img2.png",  position: "center center" },
+  { id: 3, src: "/dow-img3.png",  position: "center center" },
+  { id: 4, src: "/torq-img1.png", position: "center center" },
+  { id: 5, src: "/torq-img2.png", position: "center center" },
+  { id: 6, src: "/torq-img3.png", position: "center center" },
+  { id: 7, src: "/torq-img4.png", position: "center center" },
+  { id: 8, src: "/img3.png",      position: "center center" },
+  { id: 9, src: "/img8.png",      position: "center center" },
 ];
 
 const cardStyle: React.CSSProperties = {
