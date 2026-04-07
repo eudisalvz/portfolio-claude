@@ -83,12 +83,17 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
           }
           .cs-image-row1 {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
           }
           .cs-image-row2 {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
+          .cs-image-row3 {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 20px;
           }
         }
@@ -134,16 +139,20 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
             </div>
           </div>
 
-          {/* Row 1: logo (2/3) + image 1 (1/3) */}
+          {/* Row 1: logo + image 1 */}
           <div className="cs-image-row1">
             <Vessel src={logo} alt={`${name} logo`} />
             <Vessel src={images[0]} />
           </div>
 
-          {/* Row 2: images 2, 3, 4 */}
+          {/* Row 2: image 2 + image 3 */}
           <div className="cs-image-row2">
             <Vessel src={images[1]} />
             <Vessel src={images[2]} />
+          </div>
+
+          {/* Row 3: image 4 full width */}
+          <div className="cs-image-row3">
             <Vessel src={images[3]} />
           </div>
 
