@@ -177,6 +177,9 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
             {tags.map(t => <Tag key={t} label={t} />)}
           </div>
 
+          {/* Logo — always first on mobile */}
+          {images[0] && <Vessel src={images[0]} ratio={aspectRatio} />}
+
           {/* All texts */}
           <div>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
@@ -195,8 +198,8 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
             <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
           </div>
 
-          {/* All images */}
-          {images.map((src, i) => <Vessel key={i} src={src} ratio={aspectRatio} />)}
+          {/* Rest of images */}
+          {images.slice(1).map((src, i) => <Vessel key={i} src={src} ratio={aspectRatio} />)}
 
           {/* Connect */}
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
