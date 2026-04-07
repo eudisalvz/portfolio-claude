@@ -1,17 +1,18 @@
 import Nav from "../components/Nav";
 import SocialRow from "../components/SocialRow";
+import Link from "next/link";
 
 const myProjects = [
-  { name: "Cardverse",          tags: ["App"],          year: "Q2 2026" },
-  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024" },
+  { name: "Cardverse",          tags: ["App"],           year: "Q2 2026", href: "#" },
+  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024",   href: "#" },
 ];
 
 const clientProjects = [
-  { name: "Depends On The Weather", tags: ["App"],        year: "2025" },
-  { name: "Master Perfumes",        tags: ["Ecommerce"],  year: "2025" },
-  { name: "Decision Point Weather", tags: ["SaaS"],       year: "2025" },
-  { name: "Torq app",               tags: ["App"],        year: "2024" },
-  { name: "Mighty shield insurance",tags: ["Web page"],   year: "2024" },
+  { name: "Depends On The Weather", tags: ["App"],       year: "2025", href: "/projects/depends-on-the-weather" },
+  { name: "Master Perfumes",        tags: ["Ecommerce"], year: "2025", href: "/projects/master-perfumes" },
+  { name: "Decision Point Weather", tags: ["SaaS"],      year: "2025", href: "/projects/decision-point-weather" },
+  { name: "Torq app",               tags: ["App"],       year: "2024", href: "/projects/torq-app" },
+  { name: "Mighty shield insurance",tags: ["Web page"],  year: "2024", href: "/projects/mighty-shield-insurance" },
 ];
 
 const ChevronRight = () => (
@@ -34,22 +35,24 @@ const Tag = ({ label }: { label: string }) => (
   </span>
 );
 
-const ProjectRow = ({ name, tags, year }: { name: string; tags: string[]; year: string }) => (
-  <div style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "12px",
-    padding: "10px 0",
-    cursor: "pointer",
-  }}>
-    <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", flex: 1 }}>
-      <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{name}</span>
-      {tags.map(t => <Tag key={t} label={t} />)}
-      <Tag label={year} />
+const ProjectRow = ({ name, tags, year, href }: { name: string; tags: string[]; year: string; href: string }) => (
+  <Link href={href} style={{ textDecoration: "none" }}>
+    <div style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: "12px",
+      padding: "10px 0",
+      cursor: "pointer",
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", flex: 1 }}>
+        <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{name}</span>
+        {tags.map(t => <Tag key={t} label={t} />)}
+        <Tag label={year} />
+      </div>
+      <ChevronRight />
     </div>
-    <ChevronRight />
-  </div>
+  </Link>
 );
 
 export default function Projects() {
