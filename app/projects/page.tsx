@@ -3,8 +3,8 @@ import SocialRow from "../components/SocialRow";
 import Link from "next/link";
 
 const myProjects = [
-  { name: "Cardverse",          tags: ["App"],           year: "Q2 2026", href: "#" },
-  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024",   href: "#" },
+  { name: "Cardverse",          tags: ["App"],           year: "Q2 2026", href: "#",  icon: "arrow" as const },
+  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024",   href: "#",  icon: "arrow" as const },
 ];
 
 const clientProjects = [
@@ -34,7 +34,14 @@ const Tag = ({ label }: { label: string }) => (
   </span>
 );
 
-const ProjectRow = ({ name, tags, year, href }: { name: string; tags: string[]; year: string; href: string }) => (
+const ArrowUpRight = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+);
+
+const ProjectRow = ({ name, tags, year, href, icon = "chevron" }: { name: string; tags: string[]; year: string; href: string; icon?: "chevron" | "arrow" }) => (
   <Link href={href} style={{ textDecoration: "none" }}>
     <div style={{
       display: "flex",
@@ -49,7 +56,7 @@ const ProjectRow = ({ name, tags, year, href }: { name: string; tags: string[]; 
         {tags.map(t => <Tag key={t} label={t} />)}
         <Tag label={year} />
       </div>
-      <ChevronRight />
+      {icon === "arrow" ? <ArrowUpRight /> : <ChevronRight />}
     </div>
   </Link>
 );
