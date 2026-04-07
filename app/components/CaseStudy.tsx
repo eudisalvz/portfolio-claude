@@ -3,14 +3,13 @@ import SocialRow from "./SocialRow";
 
 interface CaseStudyProps {
   name: string;
-  slug: string;
   tags: string[];
   overview: string;
   problem: string;
   whatIDid: string;
   result: string;
-  logo?: string;
   images: string[];
+  aspectRatio?: string;
 }
 
 const Tag = ({ label }: { label: string }) => (
@@ -26,10 +25,10 @@ const Tag = ({ label }: { label: string }) => (
   </span>
 );
 
-const Vessel = ({ src, alt = "" }: { src?: string; alt?: string }) => (
+const Vessel = ({ src, ratio = "4/3" }: { src?: string; ratio?: string }) => (
   <div style={{
     width: "100%",
-    aspectRatio: "4 / 3",
+    aspectRatio: ratio,
     border: "1px solid #1B1B1B",
     borderRadius: "10px",
     background: "#000",
@@ -41,20 +40,27 @@ const Vessel = ({ src, alt = "" }: { src?: string; alt?: string }) => (
     boxSizing: "border-box",
   }}>
     {src ? (
-      <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+      <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
     ) : (
       <span style={{ color: "#222", fontSize: 11 }}>image</span>
     )}
   </div>
 );
 
-export default function CaseStudy({ name, slug, tags, overview, problem, whatIDid, result, logo, images }: CaseStudyProps) {
+const getDesktopGrid = (count: number): string => {
+  if (count === 1) return "1fr";
+  if (count === 2) return "1fr 1fr";
+  if (count === 3) return "1fr 1fr 1fr";
+  if (count === 4) return "1fr 1fr";
+  return "1fr 1fr";
+};
+
+export default function CaseStudy({ name, tags, overview, problem, whatIDid, result, images, aspectRatio = "4/3" }: CaseStudyProps) {
   return (
     <>
       <style>{`
         .cs-layout { min-height: 100vh; background: #0A0A0A; overflow-x: hidden; }
 
-        /* MOBILE */
         .cs-mobile {
           display: flex;
           flex-direction: column;
@@ -63,9 +69,9 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
           padding: 20px;
           box-sizing: border-box;
         }
+
         .cs-desktop { display: none; }
 
-        /* DESKTOP */
         @media (min-width: 1024px) {
           .cs-mobile { display: none; }
           .cs-desktop {
@@ -80,21 +86,6 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 30px;
-          }
-          .cs-image-row1 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-          }
-          .cs-image-row2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-          }
-          .cs-image-row3 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
           }
         }
       `}</style>
@@ -113,7 +104,7 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
             <span style={{ color: "#fff" }}>{name}</span>
           </div>
 
-          {/* Project name + tags */}
+          {/* Name + tags */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <span style={{ color: "#fff", fontSize: 14, fontWeight: 500 }}>{name}</span>
             {tags.map(t => <Tag key={t} label={t} />)}
@@ -139,22 +130,23 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
             </div>
           </div>
 
-          {/* Row 1: logo + image 1 */}
-          <div className="cs-image-row1">
-            <Vessel src={logo} alt={`${name} logo`} />
-            <Vessel src={images[0]} />
-          </div>
-
-          {/* Row 2: image 2 + image 3 */}
-          <div className="cs-image-row2">
-            <Vessel src={images[1]} />
-            <Vessel src={images[2]} />
-          </div>
-
-          {/* Row 3: image 4 full width */}
-          <div className="cs-image-row3">
-            <Vessel src={images[3]} />
-          </div>
+          {/* Images — adaptive grid */}
+          {images.length === 4 ? (
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+                <Vessel src={images[0]} ratio={aspectRatio} />
+                <Vessel src={images[1]} ratio={aspectRatio} />
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+                <Vessel src={images[2]} ratio={aspectRatio} />
+                <Vessel src={images[3]} ratio={aspectRatio} />
+              </div>
+            </div>
+          ) : (
+            <div style={{ display: "grid", gridTemplateColumns: getDesktopGrid(images.length), gap: "20px" }}>
+              {images.map((src, i) => <Vessel key={i} src={src} ratio={aspectRatio} />)}
+            </div>
+          )}
 
           {/* Connect */}
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -185,42 +177,26 @@ export default function CaseStudy({ name, slug, tags, overview, problem, whatIDi
             {tags.map(t => <Tag key={t} label={t} />)}
           </div>
 
-          {/* Logo vessel */}
-          <Vessel src={logo} alt={`${name} logo`} />
-
-          {/* Overview */}
+          {/* All texts */}
           <div>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
             <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
           </div>
-
-          {/* Image 1 */}
-          <Vessel src={images[0]} />
-
-          {/* Problem + What I did */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
-            </div>
-            <div>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
-            </div>
+          <div>
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
+            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
           </div>
-
-          {/* Image 2 */}
-          <Vessel src={images[1]} />
-
-          {/* Result */}
+          <div>
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
+            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
+          </div>
           <div>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
             <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
           </div>
 
-          {/* Images 3 + 4 */}
-          <Vessel src={images[2]} />
-          <Vessel src={images[3]} />
+          {/* All images */}
+          {images.map((src, i) => <Vessel key={i} src={src} ratio={aspectRatio} />)}
 
           {/* Connect */}
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
