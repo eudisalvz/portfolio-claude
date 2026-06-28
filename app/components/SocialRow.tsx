@@ -19,7 +19,7 @@ const socials = [
 
 export default function SocialRow() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
       {socials.map((s) => (
         <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"
           style={{ display: "flex", alignItems: "center", gap: "4px" }}>

@@ -106,7 +106,6 @@ export default function Home() {
             </a>
             <SocialRow />
           </div>
-          <SocialRow />
         </div>
 
       </main>
