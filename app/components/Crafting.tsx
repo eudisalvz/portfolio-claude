@@ -6,8 +6,8 @@ const ArrowUpRight = () => (
 );
 
 const projects = [
-  { label: "Cardverse",          href: "https://www.cardverse.io/" },
-  { label: "Alamo Algorithmics", href: "https://www.alamoalgorithmics.com/" },
+  { label: "Cardverse",          sub: "App · Q2 2026", logo: "/cardverse-logo.png", href: "https://www.cardverse.io/" },
+  { label: "Alamo Algorithmics", sub: "Dev-Des Agency · 2024", logo: "/alamo-logo.png", href: "https://www.alamoalgorithmics.com/" },
 ];
 
 export default function Crafting() {
@@ -17,8 +17,16 @@ export default function Crafting() {
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {projects.map((p) => (
           <a key={p.label} href={p.href} target="_blank" rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{p.label}</span>
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
+                <img src={p.logo} alt={p.label} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{p.label}</span>
+                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{p.sub}</span>
+              </div>
+            </div>
             <ArrowUpRight />
           </a>
         ))}
