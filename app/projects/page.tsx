@@ -3,8 +3,8 @@ import SocialRow from "../components/SocialRow";
 import Link from "next/link";
 
 const myProjects = [
-  { name: "Cardverse",          tags: ["App"],           year: "Q2 2026", href: "https://www.cardverse.io/",           icon: "arrow" as const },
-  { name: "Alamo Algorithmics", tags: ["Dev-Des Agency"], year: "2024",   href: "https://www.alamoalgorithmics.com/", icon: "arrow" as const },
+  { name: "Cardverse",          sub: "App · Q2 2026",      logo: "/cardverse-logo.png", href: "https://www.cardverse.io/" },
+  { name: "Alamo Algorithmics", sub: "Dev-Des Agency · 2024", logo: "/alamo-logo.png",  href: "https://www.alamoalgorithmics.com/" },
 ];
 
 const clientProjects = [
@@ -13,6 +13,13 @@ const clientProjects = [
   { name: "Decision Point Weather", tags: ["SaaS"],      year: "2025", href: "/projects/decision-point-weather" },
   { name: "Torq app",               tags: ["App"],       year: "2024", href: "/projects/torq-app" },
 ];
+
+const ArrowUpRight = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+);
 
 const ChevronRight = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -34,14 +41,22 @@ const Tag = ({ label }: { label: string }) => (
   </span>
 );
 
-const ArrowUpRight = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
+const MyProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; logo: string; href: string }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+      <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
+        <img src={logo} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+        <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{name}</span>
+        <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{sub}</span>
+      </div>
+    </div>
+    <ArrowUpRight />
+  </a>
 );
 
-const ProjectRow = ({ name, tags, year, href, icon = "chevron" }: { name: string; tags: string[]; year: string; href: string; icon?: "chevron" | "arrow" }) => (
+const ProjectRow = ({ name, tags, year, href }: { name: string; tags: string[]; year: string; href: string }) => (
   <Link href={href} style={{ textDecoration: "none" }}>
     <div style={{
       display: "flex",
@@ -56,7 +71,7 @@ const ProjectRow = ({ name, tags, year, href, icon = "chevron" }: { name: string
         {tags.map(t => <Tag key={t} label={t} />)}
         <Tag label={year} />
       </div>
-      {icon === "arrow" ? <ArrowUpRight /> : <ChevronRight />}
+      <ChevronRight />
     </div>
   </Link>
 );
@@ -152,7 +167,7 @@ export default function Projects() {
               {/* My projects */}
               <div>
                 <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "4px" }}>My projects</span>
-                {myProjects.map(p => <ProjectRow key={p.name} {...p} />)}
+                {myProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
               </div>
 
               {/* Projects for clients */}
@@ -179,7 +194,7 @@ export default function Projects() {
           {/* My projects */}
           <div>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "4px" }}>My projects</span>
-            {myProjects.map(p => <ProjectRow key={p.name} {...p} />)}
+            {myProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
           </div>
 
           {/* Projects for clients */}
