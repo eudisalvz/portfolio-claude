@@ -55,15 +55,24 @@ export default function MobileHeader() {
         </button>
       </div>
 
+      {/* Dark overlay behind menu */}
+      <div style={{
+        position: "fixed",
+        inset: 0,
+        background: "rgba(0, 0, 0, 0.6)",
+        zIndex: 199,
+        opacity: open ? 1 : 0,
+        pointerEvents: open ? "auto" : "none",
+        transition: "opacity 0.15s ease",
+      }} onClick={() => setOpen(false)} />
+
       {/* Menu panel — absolute inside layout, no fixed, no scroll lock */}
       <div style={{
         position: "absolute",
         top: 0,
         left: 0,
         right: 0,
-        background: "rgba(10, 10, 10, 0.85)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
+        background: "#0A0A0A",
         zIndex: 200,
         padding: "20px",
         paddingTop: "94px",
