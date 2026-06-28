@@ -13,7 +13,7 @@ const projects = [
 export default function Crafting() {
   return (
     <div id="crafting" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-      <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>Crafting</span>
+      <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Crafting</span>
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {projects.map((p) => (
           <a key={p.label} href={p.href} target="_blank" rel="noopener noreferrer"
