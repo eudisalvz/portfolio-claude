@@ -166,14 +166,14 @@ export default function Projects() {
 
               {/* My projects */}
               <div>
-                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "4px" }}>My projects</span>
-                {myProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
+                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "30px" }}>My projects</span>
+                <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>{myProjects.map(p => <MyProjectRow key={p.name} {...p} />)}</div>
               </div>
 
               {/* Projects for clients */}
               <div>
-                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "4px" }}>Projects for clients</span>
-                {clientProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
+                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "30px" }}>Projects for clients</span>
+                <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>{clientProjects.map(p => <MyProjectRow key={p.name} {...p} />)}</div>
               </div>
 
               {/* Connect */}
@@ -193,14 +193,14 @@ export default function Projects() {
 
           {/* My projects */}
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "4px" }}>My projects</span>
-            {myProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "30px" }}>My projects</span>
+            <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>{myProjects.map(p => <MyProjectRow key={p.name} {...p} />)}</div>
           </div>
 
           {/* Projects for clients */}
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "4px" }}>Projects for clients</span>
-            {clientProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "30px" }}>Projects for clients</span>
+            <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>{clientProjects.map(p => <MyProjectRow key={p.name} {...p} />)}</div>
           </div>
 
           {/* Connect */}
