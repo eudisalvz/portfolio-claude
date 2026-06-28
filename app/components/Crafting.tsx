@@ -7,7 +7,7 @@ const ArrowUpRight = () => (
 
 const projects = [
   { label: "Cardverse",          sub: "App · Q2 2026", logo: "/cardverse-logo.png", href: "https://www.cardverse.io/" },
-  { label: "Alamo Algorithmics", sub: "Dev-Des Agency · 2024", logo: "/alamo-logo.png", href: "https://www.alamoalgorithmics.com/" },
+  { label: "Alamo Algorithmics", sub: "Dev & Design Agency · 2024", logo: "/alamo-logo.png", href: "https://www.alamoalgorithmics.com/" },
 ];
 
 export default function Crafting() {
