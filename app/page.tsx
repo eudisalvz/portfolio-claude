@@ -100,8 +100,8 @@ export default function Home() {
           </Section>
           <Crafting />
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
+            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
               eudis.vah@gmail.com
             </a>
             <SocialRow />
