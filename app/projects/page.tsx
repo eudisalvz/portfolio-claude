@@ -55,17 +55,6 @@ const MyProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; lo
     <ArrowUpRight />
   </a>
 );
-
-const ProjectRow = ({ name, tags, year, href }: { name: string; tags: string[]; year: string; href: string }) => (
-  <Link href={href} style={{ textDecoration: "none" }}>
-    <div style={{
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      gap: "12px",
-      padding: "10px 0",
-      cursor: "pointer",
-    }}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", flex: 1 }}>
         <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{name}</span>
         {tags.map(t => <Tag key={t} label={t} />)}
