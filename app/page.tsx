@@ -101,9 +101,6 @@ export default function Home() {
           <Section label="About" id="about">
             UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
           </Section>
-          <Section label="Interests" id="interests">
-            Gym, photography, tech and gaming.
-          </Section>
           <Crafting />
           <Section label="Connect" id="connect">
             <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
