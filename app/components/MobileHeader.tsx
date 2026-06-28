@@ -102,7 +102,7 @@ export default function MobileHeader() {
                 {item.desc}
               </span>
             </div>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </Link>
