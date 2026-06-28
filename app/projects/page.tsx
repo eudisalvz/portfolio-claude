@@ -8,10 +8,10 @@ const myProjects = [
 ];
 
 const clientProjects = [
-  { name: "Depends On The Weather", tags: ["App"],       year: "2025", href: "/projects/depends-on-the-weather" },
-  { name: "Master Perfumes",        tags: ["Ecommerce"], year: "2025", href: "/projects/master-perfumes" },
-  { name: "Decision Point Weather", tags: ["SaaS"],      year: "2025", href: "/projects/decision-point-weather" },
-  { name: "Torq app",               tags: ["App"],       year: "2024", href: "/projects/torq-app" },
+  { name: "Depends On The Weather", sub: "App · 2025",       logo: "/dow-logo.png",    href: "/projects/depends-on-the-weather" },
+  { name: "Master Perfumes",        sub: "Ecommerce · 2025", logo: "/master-logo.png", href: "/projects/master-perfumes" },
+  { name: "Decision Point Weather", sub: "SaaS · 2025",      logo: "/dpw-logo.png",    href: "/projects/decision-point-weather" },
+  { name: "Torq app",               sub: "App · 2024",       logo: "/torq-logo.png",   href: "/projects/torq-app" },
 ];
 
 const ArrowUpRight = () => (
@@ -173,7 +173,7 @@ export default function Projects() {
               {/* Projects for clients */}
               <div>
                 <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "4px" }}>Projects for clients</span>
-                {clientProjects.map(p => <ProjectRow key={p.name} {...p} />)}
+                {clientProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
               </div>
 
               {/* Connect */}
@@ -200,7 +200,7 @@ export default function Projects() {
           {/* Projects for clients */}
           <div>
             <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "4px" }}>Projects for clients</span>
-            {clientProjects.map(p => <ProjectRow key={p.name} {...p} />)}
+            {clientProjects.map(p => <MyProjectRow key={p.name} {...p} />)}
           </div>
 
           {/* Connect */}
