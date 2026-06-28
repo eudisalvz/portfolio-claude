@@ -62,8 +62,6 @@ export default function Home() {
             <div className="desktop-topbar">
               <div style={{ display: "flex", alignItems: "center", gap: "30px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <span className="animate-pulse-dot" style={{ width: 8, height: 8, borderRadius: "50%", background: "#22C55E", display: "inline-block", flexShrink: 0 }} />
-                  <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Open for work</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
