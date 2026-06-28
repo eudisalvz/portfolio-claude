@@ -60,9 +60,6 @@ export default function Home() {
           </div>
           <div className="desktop-right">
             <div className="desktop-topbar">
-              <div style={{ display: "flex", alignItems: "center", gap: "30px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                </div>
               <Nav />
             </div>
             <div className="desktop-content">
