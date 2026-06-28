@@ -83,12 +83,13 @@ export default function Home() {
                 UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
               </Section>
               <Crafting />
-              <Section label="Connect" id="connect">
-                <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
+                <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
                   eudis.vah@gmail.com
                 </a>
-              </Section>
-              <SocialRow />
+                <SocialRow />
+              </div>
             </div>
           </div>
         </div>

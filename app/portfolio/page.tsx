@@ -89,6 +89,13 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "50px" }}>
+            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
+            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              eudis.vah@gmail.com
+            </a>
+            <SocialRow />
+          </div>
         </div>
 
         {/* MOBILE */}
