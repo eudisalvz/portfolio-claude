@@ -73,9 +73,9 @@ export default function MobileHeader() {
       {/* Menu panel — absolute inside layout, no fixed, no scroll lock */}
       <div style={{
         position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: 8,
+        left: 8,
+        right: 8,
         background: "var(--color-bg)",
         zIndex: 200,
         padding: "20px",

@@ -15,7 +15,7 @@ export default function Home() {
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 20px;
+          padding: 20px 28px 28px;
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
@@ -24,8 +24,8 @@ export default function Home() {
           .desktop { display: flex; width: 100%; height: 100vh; }
           .desktop-photo {
             flex-shrink: 0;
-            width: 40%;
-            margin: 50px 0 50px 50px;
+            width: calc((100% - 16px) * 0.4);
+            margin: 58px 0 42px 58px;
             border-radius: 20px;
             overflow: hidden;
           }
@@ -34,7 +34,7 @@ export default function Home() {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 50px;
+            padding: 58px 58px 42px 50px;
             overflow: hidden;
           }
           .desktop-topbar {

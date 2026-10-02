@@ -50,7 +50,7 @@ export default function Portfolio() {
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 20px;
+          padding: 20px 28px 28px;
           box-sizing: border-box;
         }
         .p-grid-mobile {
@@ -64,7 +64,7 @@ export default function Portfolio() {
           .p-desktop {
             display: block;
             width: 100%;
-            padding: 50px;
+            padding: 58px;
             box-sizing: border-box;
           }
           .p-topbar {

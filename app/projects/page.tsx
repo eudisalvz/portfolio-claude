@@ -69,7 +69,7 @@ export default function Projects() {
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 20px;
+          padding: 20px 28px 28px;
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
@@ -83,8 +83,8 @@ export default function Projects() {
           }
           .pr-left {
             flex-shrink: 0;
-            width: 40%;
-            margin: 50px 0 50px 50px;
+            width: calc((100% - 16px) * 0.4);
+            margin: 58px 0 42px 58px;
             border-radius: 20px;
             background: var(--color-panel);
             overflow: hidden;
@@ -94,7 +94,7 @@ export default function Projects() {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 50px 50px 50px 50px;
+            padding: 58px 58px 42px 50px;
             overflow: hidden;
           }
           .pr-topbar {

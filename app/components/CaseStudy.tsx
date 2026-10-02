@@ -70,7 +70,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 20px;
+          padding: 20px 28px 28px;
           box-sizing: border-box;
         }
 
@@ -84,7 +84,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
             flex-direction: column;
             gap: 50px;
             width: 100%;
-            padding: 50px;
+            padding: 58px;
             box-sizing: border-box;
           }
           .cs-text-grid {
