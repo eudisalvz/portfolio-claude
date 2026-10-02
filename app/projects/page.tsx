@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
 import Nav from "../components/Nav";
 import Connect from "../components/Connect";
+import Copyright from "../components/Copyright";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -142,6 +143,7 @@ export default function Projects() {
 
               {/* Connect */}
               <Connect />
+              <Copyright />
             </div>
           </div>
         </div>
@@ -157,6 +159,7 @@ export default function Projects() {
 
           {/* Connect */}
           <Connect />
+          <Copyright />
 
         </div>
       </main>

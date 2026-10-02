@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
 import Nav from "../components/Nav";
 import Connect from "../components/Connect";
+import Copyright from "../components/Copyright";
 import BackToTop from "../components/BackToTop";
 import Image from "next/image";
 import { images, type SiteImage } from "../images";
@@ -98,6 +99,7 @@ export default function Portfolio() {
             ))}
           </div>
           <Connect style={{ marginTop: "50px" }} />
+          <Copyright style={{ marginTop: "30px" }} />
         </div>
 
         {/* MOBILE */}
@@ -111,6 +113,7 @@ export default function Portfolio() {
             ))}
           </div>
           <Connect gap={10} lineHeight="var(--lh-body)" />
+          <Copyright />
         </div>
 
         <BackToTop />

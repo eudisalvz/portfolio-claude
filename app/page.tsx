@@ -2,6 +2,7 @@ import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import Connect from "./components/Connect";
+import Copyright from "./components/Copyright";
 
 export default function Home() {
   return (
@@ -73,6 +74,7 @@ export default function Home() {
               </Section>
               <Crafting />
               <Connect />
+              <Copyright />
             </div>
           </div>
         </div>
@@ -84,6 +86,7 @@ export default function Home() {
           </Section>
           <Crafting />
           <Connect />
+          <Copyright />
         </div>
 
       </main>

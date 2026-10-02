@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Connect from "./Connect";
+import Copyright from "./Copyright";
 import type { SiteImage } from "../images";
 
 interface CaseStudyProps {
@@ -152,8 +153,11 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
             </div>
           )}
 
-          {/* Connect */}
-          <Connect gap={10} />
+          {/* Connect + copyright (30px apart, like the other pages) */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+            <Connect gap={10} />
+            <Copyright />
+          </div>
 
         </div>
 
@@ -201,6 +205,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
 
           {/* Connect */}
           <Connect gap={10} />
+          <Copyright />
 
         </div>
       </main>
