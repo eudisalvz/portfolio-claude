@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <style>{`
-        .layout { min-height: 100vh; background: var(--color-bg); }
+        .layout { background: var(--color-bg); }
         .desktop { display: none; }
         .mobile {
           display: flex;
@@ -18,6 +18,7 @@ export default function Home() {
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
+          .layout { min-height: 100vh; }
           .mobile { display: none; }
           .desktop { display: flex; width: 100%; height: 100vh; }
           .desktop-photo {

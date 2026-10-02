@@ -61,7 +61,7 @@ export default function Projects() {
   return (
     <>
       <style>{`
-        .pr-layout { min-height: 100vh; background: var(--color-bg); overflow-x: hidden; }
+        .pr-layout { background: var(--color-bg); overflow-x: hidden; }
         .pr-desktop { display: none; }
         .pr-mobile {
           display: flex;
@@ -72,6 +72,7 @@ export default function Projects() {
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
+          .pr-layout { min-height: 100vh; }
           .pr-mobile { display: none; }
           .pr-desktop {
             display: flex;

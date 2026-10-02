@@ -62,7 +62,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
   return (
     <>
       <style>{`
-        .cs-layout { min-height: 100vh; background: var(--color-bg); overflow-x: hidden; }
+        .cs-layout { background: var(--color-bg); overflow-x: hidden; }
 
         .cs-mobile {
           display: flex;
@@ -76,6 +76,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
         .cs-desktop { display: none; }
 
         @media (min-width: 1024px) {
+          .cs-layout { min-height: 100vh; }
           .cs-mobile { display: none; }
           .cs-desktop {
             display: flex;

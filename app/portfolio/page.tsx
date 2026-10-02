@@ -42,7 +42,7 @@ export default function Portfolio() {
   return (
     <>
       <style>{`
-        .p-layout { min-height: 100vh; background: var(--color-bg); overflow-x: hidden; }
+        .p-layout { background: var(--color-bg); overflow-x: hidden; }
         .p-desktop { display: none; }
         .p-mobile {
           display: flex;
@@ -58,6 +58,7 @@ export default function Portfolio() {
           gap: 20px;
         }
         @media (min-width: 1024px) {
+          .p-layout { min-height: 100vh; }
           .p-mobile { display: none; }
           .p-desktop {
             display: block;
