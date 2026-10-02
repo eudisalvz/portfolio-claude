@@ -1,20 +1,22 @@
 import Nav from "../components/Nav";
 import SocialRow from "../components/SocialRow";
 import BackToTop from "../components/BackToTop";
+import Image from "next/image";
+import { images } from "../images";
 
 const cards = [
-  { id: 1, src: "/dow-img1.png",  position: "center center" },
-  { id: 2, src: "/dow-img2.png",  position: "center center" },
-  { id: 3, src: "/dow-img3.png",  position: "center center" },
-  { id: 4, src: "/torq-img1.png", position: "center center" },
-  { id: 5, src: "/torq-img2.png", position: "center center" },
-  { id: 6, src: "/torq-img3.png", position: "center center" },
-  { id: 7, src: "/torq-img4.png", position: "center center" },
-  { id: 8, src: "/img3.png",      position: "center center" },
-  { id: 9,  src: "/img8.png",      position: "center center" },
-  { id: 10, src: "/dpw-img2.png",  position: "center center" },
-  { id: 11, src: "/dpw-img4.png",  position: "center center" },
-  { id: 12, src: "/dpw-img1.png",  position: "center center" },
+  { id: 1, image: images.dowImg1,  position: "center center" },
+  { id: 2, image: images.dowImg2,  position: "center center" },
+  { id: 3, image: images.dowImg3,  position: "center center" },
+  { id: 4, image: images.torqImg1, position: "center center" },
+  { id: 5, image: images.torqImg2, position: "center center" },
+  { id: 6, image: images.torqImg3, position: "center center" },
+  { id: 7, image: images.torqImg4, position: "center center" },
+  { id: 8, image: images.dpwCards,      position: "center center" },
+  { id: 9,  image: images.dpwRadial,      position: "center center" },
+  { id: 10, image: images.dpwImg2,  position: "center center" },
+  { id: 11, image: images.dpwImg4,  position: "center center" },
+  { id: 12, image: images.dpwImg1,  position: "center center" },
 ];
 
 const cardStyle: React.CSSProperties = {
@@ -85,7 +87,9 @@ export default function Portfolio() {
           <div className="p-grid-desktop">
             {cards.map((card) => (
               <div key={card.id} style={{ ...cardStyle, padding: "5%" }}>
-                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                <Image src={card.image.src} width={card.image.width} height={card.image.height} alt={card.image.alt}
+                  sizes="(min-width: 1024px) 30vw, 90vw"
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
             ))}
           </div>
@@ -103,7 +107,9 @@ export default function Portfolio() {
           <div className="p-grid-mobile">
             {cards.map((card) => (
               <div key={card.id} style={{ ...cardStyle, padding: "5%" }}>
-                <img src={card.src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                <Image src={card.image.src} width={card.image.width} height={card.image.height} alt={card.image.alt}
+                  sizes="(min-width: 1024px) 30vw, 90vw"
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
             ))}
           </div>

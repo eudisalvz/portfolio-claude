@@ -1,4 +1,5 @@
 import CaseStudy from "../../components/CaseStudy";
+import { images } from "../../images";
 
 export default function DecisionPointWeather() {
   return (
@@ -9,7 +10,7 @@ export default function DecisionPointWeather() {
       problem="Weather-related losses are invisible until they happen. Business owners had no structured way to anticipate how a bad weather day would impact specific jobs or revenue, leading to costly scheduling mistakes."
       whatIDid="Designed the full dashboard from scratch, including the core data visualization system, job categorization flows, and onboarding experience. The goal was to make complex weather and business data feel actionable at a glance."
       result="Businesses using the platform can now proactively reschedule high-risk operations before weather impacts them, directly protecting revenue that would otherwise be lost."
-      images={["/dpw-logo.png", "/dpw-img1.png", "/dpw-img2.png", "/dpw-img3.png", "/dpw-img4.png"]}
+      images={[images.dpwLogo, images.dpwImg1, images.dpwImg2, images.dpwImg3, images.dpwImg4]}
     />
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navItems = [
@@ -30,7 +31,7 @@ export default function MobileHeader() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-            <img src="/pfp.jpg" alt="Eudis Alvarez" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <Image src="/pfp.webp" alt="Eudis Alvarez" width={36} height={36} preload={pathname === "/"} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>

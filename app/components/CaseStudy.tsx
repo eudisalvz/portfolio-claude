@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import SocialRow from "./SocialRow";
+import type { SiteImage } from "../images";
 
 interface CaseStudyProps {
   name: string;
@@ -8,7 +10,7 @@ interface CaseStudyProps {
   problem: string;
   whatIDid: string;
   result: string;
-  images: string[];
+  images: SiteImage[];
   aspectRatio?: string;
 }
 
@@ -25,7 +27,7 @@ const Tag = ({ label }: { label: string }) => (
   </span>
 );
 
-const Vessel = ({ src, ratio = "4/3" }: { src?: string; ratio?: string }) => (
+const Vessel = ({ image, ratio = "4/3" }: { image?: SiteImage; ratio?: string }) => (
   <div style={{
     width: "100%",
     aspectRatio: ratio,
@@ -39,8 +41,10 @@ const Vessel = ({ src, ratio = "4/3" }: { src?: string; ratio?: string }) => (
     padding: "5%",
     boxSizing: "border-box",
   }}>
-    {src ? (
-      <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+    {image ? (
+      <Image src={image.src} width={image.width} height={image.height} alt={image.alt}
+        sizes="(min-width: 1024px) 45vw, 90vw"
+        style={{ width: "100%", height: "100%", objectFit: "contain" }} />
     ) : (
       <span style={{ color: "#222", fontSize: 11 }}>image</span>
     )}
@@ -134,17 +138,17 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           {images.length === 4 ? (
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                <Vessel src={images[0]} ratio={aspectRatio} />
-                <Vessel src={images[1]} ratio={aspectRatio} />
+                <Vessel image={images[0]} ratio={aspectRatio} />
+                <Vessel image={images[1]} ratio={aspectRatio} />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                <Vessel src={images[2]} ratio={aspectRatio} />
-                <Vessel src={images[3]} ratio={aspectRatio} />
+                <Vessel image={images[2]} ratio={aspectRatio} />
+                <Vessel image={images[3]} ratio={aspectRatio} />
               </div>
             </div>
           ) : (
             <div style={{ display: "grid", gridTemplateColumns: getDesktopGrid(images.length), gap: "20px" }}>
-              {images.map((src, i) => <Vessel key={i} src={src} ratio={aspectRatio} />)}
+              {images.map((image, i) => <Vessel key={i} image={image} ratio={aspectRatio} />)}
             </div>
           )}
 
@@ -178,7 +182,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           </div>
 
           {/* Logo — always first on mobile */}
-          {images[0] && <Vessel src={images[0]} ratio={aspectRatio} />}
+          {images[0] && <Vessel image={images[0]} ratio={aspectRatio} />}
 
           {/* All texts */}
           <div>
@@ -199,7 +203,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           </div>
 
           {/* Rest of images */}
-          {images.slice(1).map((src, i) => <Vessel key={i} src={src} ratio={aspectRatio} />)}
+          {images.slice(1).map((image, i) => <Vessel key={i} image={image} ratio={aspectRatio} />)}
 
           {/* Connect */}
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>

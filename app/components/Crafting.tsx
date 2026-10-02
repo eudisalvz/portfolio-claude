@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ArrowUpRight = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
     <line x1="7" y1="17" x2="17" y2="7" />
@@ -6,8 +8,8 @@ const ArrowUpRight = () => (
 );
 
 const projects = [
-  { label: "Cardverse",          sub: "App · Q2 2026", logo: "/cardverse-logo.png", href: "https://www.cardverse.io/" },
-  { label: "Alamo Algorithmics", sub: "Dev & Design Agency · 2024", logo: "/alamo-logo.png", href: "https://www.alamoalgorithmics.com/" },
+  { label: "Cardverse",          sub: "App · Q2 2026", logo: "/cardverse-logo.webp", href: "https://www.cardverse.io/" },
+  { label: "Alamo Algorithmics", sub: "Dev & Design Agency · 2024", logo: "/alamo-logo.webp", href: "https://www.alamoalgorithmics.com/" },
 ];
 
 export default function Crafting() {
@@ -20,7 +22,7 @@ export default function Crafting() {
             style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-                <img src={p.logo} alt={p.label} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <Image src={p.logo} alt={p.label} width={36} height={36} preload style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                 <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{p.label}</span>
