@@ -22,6 +22,9 @@
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --fs-body: 14px;
   --lh-body: 22px;
+
+  /* Desktop footer height (line + bottom padding); full-screen pages subtract it from 100vh */
+  --footer-h: calc(var(--lh-body) + 42px);
 }
 
 @media (min-width: 1024px) {
@@ -78,5 +81,17 @@ a {
 @media (min-width: 1024px) {
   .mobile-layout-header {
     display: none;
+  }
+}
+
+.site-footer {
+  padding: 0 28px 28px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .site-footer {
+    padding: 0 58px 42px;
   }
 }

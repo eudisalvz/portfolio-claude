@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Connect from "./Connect";
-import Copyright from "./Copyright";
 import type { SiteImage } from "../images";
 
 interface CaseStudyProps {
@@ -77,14 +76,14 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
         .cs-desktop { display: none; }
 
         @media (min-width: 1024px) {
-          .cs-layout { min-height: 100vh; }
+          .cs-layout { min-height: calc(100vh - var(--footer-h)); }
           .cs-mobile { display: none; }
           .cs-desktop {
             display: flex;
             flex-direction: column;
             gap: 50px;
             width: 100%;
-            padding: 58px;
+            padding: 58px 58px 42px;
             box-sizing: border-box;
           }
           .cs-text-grid {
@@ -153,11 +152,8 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
             </div>
           )}
 
-          {/* Connect + copyright (30px apart, like the other pages) */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
-            <Connect gap={10} />
-            <Copyright />
-          </div>
+          {/* Connect */}
+          <Connect gap={10} />
 
         </div>
 
@@ -205,7 +201,6 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
 
           {/* Connect */}
           <Connect gap={10} />
-          <Copyright />
 
         </div>
       </main>

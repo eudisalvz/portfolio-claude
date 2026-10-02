@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
 import Nav from "../components/Nav";
 import Connect from "../components/Connect";
-import Copyright from "../components/Copyright";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -73,12 +72,12 @@ export default function Projects() {
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
-          .pr-layout { min-height: 100vh; }
+          .pr-layout { min-height: calc(100vh - var(--footer-h)); }
           .pr-mobile { display: none; }
           .pr-desktop {
             display: flex;
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - var(--footer-h));
             box-sizing: border-box;
           }
           .pr-left {
@@ -143,7 +142,6 @@ export default function Projects() {
 
               {/* Connect */}
               <Connect />
-              <Copyright />
             </div>
           </div>
         </div>
@@ -159,7 +157,6 @@ export default function Projects() {
 
           {/* Connect */}
           <Connect />
-          <Copyright />
 
         </div>
       </main>

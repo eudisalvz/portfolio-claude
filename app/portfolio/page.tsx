@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
 import Nav from "../components/Nav";
 import Connect from "../components/Connect";
-import Copyright from "../components/Copyright";
 import BackToTop from "../components/BackToTop";
 import Image from "next/image";
 import { images, type SiteImage } from "../images";
@@ -59,12 +58,12 @@ export default function Portfolio() {
           gap: 20px;
         }
         @media (min-width: 1024px) {
-          .p-layout { min-height: 100vh; }
+          .p-layout { min-height: calc(100vh - var(--footer-h)); }
           .p-mobile { display: none; }
           .p-desktop {
             display: block;
             width: 100%;
-            padding: 58px;
+            padding: 58px 58px 42px;
             box-sizing: border-box;
           }
           .p-topbar {
@@ -99,7 +98,6 @@ export default function Portfolio() {
             ))}
           </div>
           <Connect style={{ marginTop: "50px" }} />
-          <Copyright style={{ marginTop: "30px" }} />
         </div>
 
         {/* MOBILE */}
@@ -113,7 +111,6 @@ export default function Portfolio() {
             ))}
           </div>
           <Connect gap={10} lineHeight="var(--lh-body)" />
-          <Copyright />
         </div>
 
         <BackToTop />

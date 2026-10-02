@@ -2,7 +2,6 @@ import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
 import Connect from "./components/Connect";
-import Copyright from "./components/Copyright";
 
 export default function Home() {
   return (
@@ -19,9 +18,9 @@ export default function Home() {
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
-          .layout { min-height: 100vh; }
+          .layout { min-height: calc(100vh - var(--footer-h)); }
           .mobile { display: none; }
-          .desktop { display: flex; width: 100%; height: 100vh; }
+          .desktop { display: flex; width: 100%; height: calc(100vh - var(--footer-h)); }
           .desktop-photo {
             flex-shrink: 0;
             width: calc((100% - 16px) * 0.4);
@@ -74,7 +73,6 @@ export default function Home() {
               </Section>
               <Crafting />
               <Connect />
-              <Copyright />
             </div>
           </div>
         </div>
@@ -86,7 +84,6 @@ export default function Home() {
           </Section>
           <Crafting />
           <Connect />
-          <Copyright />
         </div>
 
       </main>

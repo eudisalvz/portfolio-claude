@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import MobileHeader from "./components/MobileHeader";
+import Copyright from "./components/Copyright";
 import { siteDescription, siteName, siteTitle, siteUrl } from "./seo";
 import { colors } from "./colors";
 
@@ -41,6 +42,9 @@ export default function RootLayout({
           <MobileHeader />
         </div>
         {children}
+        <footer className="site-footer">
+          <Copyright />
+        </footer>
       </body>
     </html>
   );
