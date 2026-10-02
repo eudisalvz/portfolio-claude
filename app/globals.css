@@ -16,6 +16,9 @@
   --color-placeholder-text: #BDBDBD;
   --color-overlay: rgba(0, 0, 0, 0.3);
 
+  /* Gradients */
+  --gradient-sunset: linear-gradient(180deg, #1E1B2E 0%, #3D2440 45%, #7A3A45 75%, #C2694A 100%);
+
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --fs-body: 14px;
   --lh-body: 22px;

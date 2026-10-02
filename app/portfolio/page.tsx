@@ -4,9 +4,9 @@ import Nav from "../components/Nav";
 import Connect from "../components/Connect";
 import BackToTop from "../components/BackToTop";
 import Image from "next/image";
-import { images } from "../images";
+import { images, type SiteImage } from "../images";
 
-const cards = [
+const cards: { id: number; image: SiteImage; position: string; background?: string }[] = [
   { id: 1, image: images.dowImg1,  position: "center center" },
   { id: 2, image: images.dowImg2,  position: "center center" },
   { id: 3, image: images.dowImg3,  position: "center center" },
@@ -14,8 +14,8 @@ const cards = [
   { id: 5, image: images.torqImg2, position: "center center" },
   { id: 6, image: images.torqImg3, position: "center center" },
   { id: 7, image: images.torqImg4, position: "center center" },
-  { id: 8, image: images.dpwCards,      position: "center center" },
-  { id: 9,  image: images.dpwRadial,      position: "center center" },
+  { id: 8, image: images.dpwCards,      position: "center center", background: "var(--gradient-sunset)" },
+  { id: 9,  image: images.dpwRadial,      position: "center center", background: "var(--gradient-sunset)" },
   { id: 10, image: images.dpwImg2,  position: "center center" },
   { id: 11, image: images.dpwImg4,  position: "center center" },
   { id: 12, image: images.dpwImg1,  position: "center center" },
@@ -90,7 +90,7 @@ export default function Portfolio() {
           </div>
           <div className="p-grid-desktop">
             {cards.map((card) => (
-              <div key={card.id} style={{ ...cardStyle, padding: "5%" }}>
+              <div key={card.id} style={{ ...cardStyle, padding: "5%", background: card.background ?? cardStyle.background }}>
                 <Image src={card.image.src} width={card.image.width} height={card.image.height} alt={card.image.alt} unoptimized
                   style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
@@ -103,7 +103,7 @@ export default function Portfolio() {
         <div className="p-mobile">
           <div className="p-grid-mobile">
             {cards.map((card) => (
-              <div key={card.id} style={{ ...cardStyle, padding: "5%" }}>
+              <div key={card.id} style={{ ...cardStyle, padding: "5%", background: card.background ?? cardStyle.background }}>
                 <Image src={card.image.src} width={card.image.width} height={card.image.height} alt={card.image.alt} unoptimized
                   style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
