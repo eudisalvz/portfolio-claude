@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import MobileHeader from "./components/MobileHeader";
 
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={GeistSans.variable}>
       <body>
         {/* Mobile header lives here so video persists across page navigation */}
         <div className="mobile-layout-header" style={{ position: "relative" }}>
