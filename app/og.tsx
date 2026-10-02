@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import sharp from "sharp";
 import type { SiteImage } from "./images";
 import { colors } from "./colors";
 
@@ -46,8 +47,10 @@ export async function textOgImage({ title, description }: { title: string; descr
 
 // Option C: case study name + original screenshot (read from public/, never modified)
 export async function caseStudyOgImage({ name, image }: { name: string; image: SiteImage }) {
-  const data = await readFile(join(process.cwd(), "public", image.src), "base64");
-  const src = `data:image/png;base64,${data}`;
+  // Satori can't decode WebP, so the screenshot is converted to PNG in memory (lossless).
+  const file = await readFile(join(process.cwd(), "public", image.src));
+  const png = image.src.endsWith(".webp") ? await sharp(file).png().toBuffer() : file;
+  const src = `data:image/png;base64,${png.toString("base64")}`;
 
   return new ImageResponse(
     (
