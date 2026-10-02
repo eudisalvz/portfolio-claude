@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import CaseStudy from "../../components/CaseStudy";
 import { images } from "../../images";
+import { caseStudies, pageMetadata } from "../../seo";
+
+export const metadata: Metadata = pageMetadata(caseStudies["master-perfumes"]);
 
 export default function MasterPerfumes() {
   return (

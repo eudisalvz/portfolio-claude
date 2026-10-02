@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata, pages } from "../seo";
 import Nav from "../components/Nav";
 import Connect from "../components/Connect";
 import BackToTop from "../components/BackToTop";
@@ -33,6 +35,8 @@ const cardStyle: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
 };
+
+export const metadata: Metadata = pageMetadata(pages.portfolio);
 
 export default function Portfolio() {
   return (

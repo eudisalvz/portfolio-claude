@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata, pages } from "../seo";
 import Nav from "../components/Nav";
 import Connect from "../components/Connect";
 import Image from "next/image";
@@ -8,7 +10,7 @@ const myProjects = [
 ];
 
 const clientProjects = [
-  { name: "Depends On The Weather", sub: "App · 2025",       logo: "/dow-logo.png",    href: "/projects/depends-on-the-weather" },
+  { name: "Depends on the Weather", sub: "App · 2025",       logo: "/dow-logo.png",    href: "/projects/depends-on-the-weather" },
   { name: "Master Perfumes",        sub: "Ecommerce · 2025", logo: "/master-logo.png", href: "/projects/master-perfumes" },
   { name: "Decision Point Weather", sub: "SaaS · 2025",      logo: "/dpw-logo.png",    href: "/projects/decision-point-weather" },
   { name: "Torq app",               sub: "App · 2024",       logo: "/torq-logo.png",   href: "/projects/torq-app" },
@@ -35,6 +37,8 @@ const MyProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; lo
     <ArrowUpRight />
   </a>
 );
+
+export const metadata: Metadata = pageMetadata(pages.projects);
 
 export default function Projects() {
   return (

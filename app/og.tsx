@@ -1,0 +1,75 @@
+import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+import type { SiteImage } from "./images";
+
+// Shared renderer for the opengraph-image.tsx files.
+// ImageResponse only accepts static ttf/otf/woff fonts, so the Geist TTFs are read from the geist package.
+
+export const ogSize = { width: 1200, height: 630 };
+
+const fontDir = join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans");
+const fonts = Promise.all([
+  readFile(join(fontDir, "Geist-Regular.ttf")),
+  readFile(join(fontDir, "Geist-Medium.ttf")),
+]).then(([regular, medium]) => [
+  { name: "Geist", data: regular, weight: 400 as const, style: "normal" as const },
+  { name: "Geist", data: medium, weight: 500 as const, style: "normal" as const },
+]);
+
+const Header = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+    <span style={{ color: "#fff", fontSize: 30, fontWeight: 500 }}>Eudis Alvarez</span>
+    <span style={{ color: "#9E9E9E", fontSize: 26 }}>UI / UX Designer · Lawyer</span>
+  </div>
+);
+
+// Option A: text-only card (Home, Portfolio, Projects)
+export async function textOgImage({ title, description }: { title: string; description: string }) {
+  return new ImageResponse(
+    (
+      <div style={{
+        width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between",
+        background: "#0A0A0A", padding: 80, fontFamily: "Geist",
+      }}>
+        <Header />
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          <span style={{ color: "#fff", fontSize: 64, fontWeight: 500, lineHeight: 1.1 }}>{title}</span>
+          <span style={{ color: "#9E9E9E", fontSize: 30, lineHeight: 1.4, maxWidth: 960 }}>{description}</span>
+        </div>
+      </div>
+    ),
+    { ...ogSize, fonts: await fonts },
+  );
+}
+
+// Option C: case study name + original screenshot (read from public/, never modified)
+export async function caseStudyOgImage({ name, image }: { name: string; image: SiteImage }) {
+  const data = await readFile(join(process.cwd(), "public", image.src), "base64");
+  const src = `data:image/png;base64,${data}`;
+
+  return new ImageResponse(
+    (
+      <div style={{
+        width: "100%", height: "100%", display: "flex", alignItems: "stretch", gap: 48,
+        background: "#0A0A0A", padding: 60, fontFamily: "Geist",
+      }}>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", flex: 1 }}>
+          <Header />
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <span style={{ color: "#9E9E9E", fontSize: 28 }}>Case study</span>
+            <span style={{ color: "#fff", fontSize: 56, fontWeight: 500, lineHeight: 1.1 }}>{name}</span>
+          </div>
+        </div>
+        <div style={{
+          display: "flex", alignItems: "center", justifyContent: "center", width: 620,
+          background: "#000", border: "1px solid #1B1B1B", borderRadius: 20, padding: 24,
+        }}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders plain <img>, next/image does not apply */}
+          <img src={src} width={572} height={Math.round((572 * image.height) / image.width)} alt="" />
+        </div>
+      </div>
+    ),
+    { ...ogSize, fonts: await fonts },
+  );
+}

@@ -2,10 +2,24 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import MobileHeader from "./components/MobileHeader";
+import { siteDescription, siteName, siteTitle, siteUrl } from "./seo";
 
 export const metadata: Metadata = {
-  title: "Eudis Alvarez — Designer",
-  description: "UI/UX Designer · Lawyer. Open for work.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName,
+    url: "/",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

@@ -9,11 +9,11 @@ const shot = (src: string, alt: string, width = 2000, height = 1321): SiteImage 
 const logo = (src: string, alt: string): SiteImage => ({ src, width: 1000, height: 1000, alt });
 
 export const images = {
-  // Depends On The Weather
-  dowLogo: logo("/dow-logo.png", "Depends On The Weather logo"),
-  dowImg1: shot("/dow-img1.png", "Depends On The Weather app home screen with the current forecast, next to the premium subscription screen"),
-  dowImg2: shot("/dow-img2.png", "Depends On The Weather app activity picker and hourly and 10-day forecast screens"),
-  dowImg3: shot("/dow-img3.png", "Depends On The Weather app map views with radar and activity condition overlays"),
+  // Depends on the Weather
+  dowLogo: logo("/dow-logo.png", "Depends on the Weather logo"),
+  dowImg1: shot("/dow-img1.png", "Depends on the Weather app home screen with the current forecast, next to the premium subscription screen"),
+  dowImg2: shot("/dow-img2.png", "Depends on the Weather app activity picker and hourly and 10-day forecast screens"),
+  dowImg3: shot("/dow-img3.png", "Depends on the Weather app map views with radar and activity condition overlays"),
 
   // Decision Point Weather
   dpwLogo: logo("/dpw-logo.png", "Decision Point Weather logo"),
