@@ -21,7 +21,7 @@ export default function BackToTop() {
         display: "flex",
         alignItems: "center",
         gap: "8px",
-        background: "#1a1a1a",
+        background: "var(--color-panel)",
         border: "none",
         borderRadius: "100px",
         padding: "12px 18px",
@@ -33,10 +33,10 @@ export default function BackToTop() {
         zIndex: 50,
       }}
     >
-      <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "20px" }}>
+      <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "20px" }}>
         Back to top
       </span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text-secondary)" }}>
         <line x1="12" y1="19" x2="12" y2="5" />
         <polyline points="5 12 12 5 19 12" />
       </svg>

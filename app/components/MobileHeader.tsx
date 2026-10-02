@@ -32,7 +32,7 @@ export default function MobileHeader() {
         width: "100%",
         position: "relative",
         zIndex: 300,
-        background: "#0A0A0A",
+        background: "var(--color-bg)",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
@@ -40,19 +40,19 @@ export default function MobileHeader() {
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
+              <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Eudis Alvarez</span>
             </div>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
+            <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "20px", display: "block" }}>UI / UX Designer · Lawyer</span>
           </div>
         </div>
         <button onClick={() => setOpen(!open)}
           style={{ background: "none", border: "none", cursor: "pointer", padding: "0", flexShrink: 0 }}>
           {open ? (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" style={{ stroke: "var(--color-text)" }}>
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           ) : (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" style={{ stroke: "var(--color-text)" }}>
               <line x1="4" y1="8" x2="20" y2="8" /><line x1="4" y1="16" x2="20" y2="16" />
             </svg>
           )}
@@ -63,7 +63,7 @@ export default function MobileHeader() {
       <div style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0, 0, 0, 0.6)",
+        background: "var(--color-overlay)",
         zIndex: 199,
         opacity: open ? 1 : 0,
         pointerEvents: open ? "auto" : "none",
@@ -76,7 +76,7 @@ export default function MobileHeader() {
         top: 0,
         left: 0,
         right: 0,
-        background: "#0A0A0A",
+        background: "var(--color-bg)",
         zIndex: 200,
         padding: "20px",
         paddingTop: "94px",
@@ -93,7 +93,7 @@ export default function MobileHeader() {
             style={{ textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div>
               <span style={{
-                color: pathname === item.href ? "#fff" : "#9E9E9E",
+                color: pathname === item.href ? "var(--color-text)" : "var(--color-text-secondary)",
                 fontSize: "var(--fs-body)",
                 fontWeight: 500,
                 lineHeight: "var(--lh-body)",
@@ -102,11 +102,11 @@ export default function MobileHeader() {
               }}>
                 {item.label}
               </span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
+              <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>
                 {item.desc}
               </span>
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text)", flexShrink: 0 }}>
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </Link>

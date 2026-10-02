@@ -23,9 +23,9 @@ const cards = [
 
 const cardStyle: React.CSSProperties = {
   aspectRatio: "4 / 3",
-  border: "1px solid #1B1B1B",
+  border: "1px solid var(--color-image-border)",
   borderRadius: "10px",
-  background: "#000000",
+  background: "var(--color-image-bg)",
   overflow: "hidden",
   cursor: "pointer",
   position: "relative",
@@ -42,7 +42,7 @@ export default function Portfolio() {
   return (
     <>
       <style>{`
-        .p-layout { min-height: 100vh; background: #0A0A0A; overflow-x: hidden; }
+        .p-layout { min-height: 100vh; background: var(--color-bg); overflow-x: hidden; }
         .p-desktop { display: none; }
         .p-mobile {
           display: flex;
@@ -85,7 +85,7 @@ export default function Portfolio() {
         {/* DESKTOP */}
         <div className="p-desktop">
           <div className="p-topbar">
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "20px", textTransform: "uppercase" }}>Crafting</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "20px", textTransform: "uppercase" }}>Crafting</span>
             <Nav />
           </div>
           <div className="p-grid-desktop">

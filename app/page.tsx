@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <style>{`
-        .layout { min-height: 100vh; background: #0A0A0A; }
+        .layout { min-height: 100vh; background: var(--color-bg); }
         .desktop { display: none; }
         .mobile {
           display: flex;
@@ -64,8 +64,8 @@ export default function Home() {
             </div>
             <div className="desktop-content">
               <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
+                <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
+                <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
               </div>
               <Section label="About" id="about">
                 UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.

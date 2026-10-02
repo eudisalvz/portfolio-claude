@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import MobileHeader from "./components/MobileHeader";
 import { siteDescription, siteName, siteTitle, siteUrl } from "./seo";
+import { colors } from "./colors";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     description: siteDescription,
   },
   twitter: { card: "summary_large_image" },
+};
+
+export const viewport: Viewport = {
+  themeColor: colors.bg,
+  colorScheme: "light",
 };
 
 export default function RootLayout({

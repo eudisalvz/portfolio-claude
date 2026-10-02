@@ -16,7 +16,7 @@ export default function Nav() {
       {navItems.map((item) => (
         <Link key={item.label} href={item.href}
           style={{
-            color: pathname === item.href ? "#FFFFFF" : "#9E9E9E",
+            color: pathname === item.href ? "var(--color-text)" : "var(--color-text-secondary)",
             fontSize: "var(--fs-body)",
             lineHeight: "var(--lh-body)",
             textDecoration: "underline",

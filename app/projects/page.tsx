@@ -16,14 +16,14 @@ const projects = [
 ];
 
 const ArrowUpRight = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text)", flexShrink: 0 }}>
     <line x1="7" y1="17" x2="17" y2="7" />
     <polyline points="7 7 17 7 17 17" />
   </svg>
 );
 
 const ArrowRight = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text)", flexShrink: 0 }}>
     <line x1="5" y1="12" x2="19" y2="12" />
     <polyline points="12 5 19 12 12 19" />
   </svg>
@@ -40,8 +40,8 @@ const ProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; logo
           <Image src={logo} alt={name} width={36} height={36} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-          <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{name}</span>
-          <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{sub}</span>
+          <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{name}</span>
+          <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{sub}</span>
         </div>
       </div>
       {external ? <ArrowUpRight /> : <ArrowRight />}
@@ -61,7 +61,7 @@ export default function Projects() {
   return (
     <>
       <style>{`
-        .pr-layout { min-height: 100vh; background: #0A0A0A; overflow-x: hidden; }
+        .pr-layout { min-height: 100vh; background: var(--color-bg); overflow-x: hidden; }
         .pr-desktop { display: none; }
         .pr-mobile {
           display: flex;
@@ -84,7 +84,7 @@ export default function Projects() {
             width: 40%;
             margin: 50px 0 50px 50px;
             border-radius: 20px;
-            background: #1a1a1a;
+            background: var(--color-panel);
             overflow: hidden;
           }
           .pr-right {
@@ -129,13 +129,13 @@ export default function Projects() {
             <div className="pr-content">
               {/* Name + role */}
               <div>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
+                <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
+                <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
               </div>
 
               {/* Projects */}
               <div>
-                <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "10px" }}>Projects</span>
+                <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "10px" }}>Projects</span>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
               </div>
 
@@ -150,7 +150,7 @@ export default function Projects() {
 
           {/* Projects */}
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Projects</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Projects</span>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
           </div>
 

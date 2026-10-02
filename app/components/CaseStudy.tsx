@@ -17,8 +17,8 @@ interface CaseStudyProps {
 const Tag = ({ label }: { label: string }) => (
   <span style={{
     fontSize: "var(--fs-body)",
-    color: "#9E9E9E",
-    background: "#141414",
+    color: "var(--color-text-secondary)",
+    background: "var(--color-placeholder-bg)",
     borderRadius: "6px",
     padding: "0px 5px",
     whiteSpace: "nowrap",
@@ -31,9 +31,9 @@ const Vessel = ({ image, ratio = "4/3" }: { image?: SiteImage; ratio?: string })
   <div style={{
     width: "100%",
     aspectRatio: ratio,
-    border: "1px solid #1B1B1B",
+    border: "1px solid var(--color-image-border)",
     borderRadius: "10px",
-    background: "#000",
+    background: "var(--color-image-bg)",
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -45,7 +45,7 @@ const Vessel = ({ image, ratio = "4/3" }: { image?: SiteImage; ratio?: string })
       <Image src={image.src} width={image.width} height={image.height} alt={image.alt} unoptimized
         style={{ width: "100%", height: "100%", objectFit: "contain" }} />
     ) : (
-      <span style={{ color: "#222", fontSize: 11 }}>image</span>
+      <span style={{ color: "var(--color-placeholder-text)", fontSize: 11 }}>image</span>
     )}
   </div>
 );
@@ -62,7 +62,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
   return (
     <>
       <style>{`
-        .cs-layout { min-height: 100vh; background: #0A0A0A; overflow-x: hidden; }
+        .cs-layout { min-height: 100vh; background: var(--color-bg); overflow-x: hidden; }
 
         .cs-mobile {
           display: flex;
@@ -99,37 +99,37 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
         <div className="cs-desktop">
 
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "var(--fs-body)", color: "#9E9E9E" }}>
-            <Link href="/" style={{ color: "#9E9E9E" }}>Home</Link>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "var(--fs-body)", color: "var(--color-text-secondary)" }}>
+            <Link href="/" style={{ color: "var(--color-text-secondary)" }}>Home</Link>
             <span>/</span>
-            <Link href="/projects" style={{ color: "#9E9E9E" }}>Projects</Link>
+            <Link href="/projects" style={{ color: "var(--color-text-secondary)" }}>Projects</Link>
             <span>/</span>
-            <span style={{ color: "#fff" }}>{name}</span>
+            <span style={{ color: "var(--color-text)" }}>{name}</span>
           </div>
 
           {/* Name + tags */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <span style={{ color: "#fff", fontSize: 14, fontWeight: 500 }}>{name}</span>
+            <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500 }}>{name}</span>
             {tags.map(t => <Tag key={t} label={t} />)}
           </div>
 
           {/* 4-col text grid */}
           <div className="cs-text-grid">
             <div>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
+              <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
             </div>
             <div>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
+              <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
             </div>
             <div>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
+              <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
             </div>
             <div>
-              <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
-              <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
+              <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
             </div>
           </div>
 
@@ -160,17 +160,17 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
         <div className="cs-mobile">
 
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "var(--fs-body)", color: "#9E9E9E", flexWrap: "wrap" }}>
-            <Link href="/" style={{ color: "#9E9E9E" }}>Home</Link>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "var(--fs-body)", color: "var(--color-text-secondary)", flexWrap: "wrap" }}>
+            <Link href="/" style={{ color: "var(--color-text-secondary)" }}>Home</Link>
             <span>/</span>
-            <Link href="/projects" style={{ color: "#9E9E9E" }}>Projects</Link>
+            <Link href="/projects" style={{ color: "var(--color-text-secondary)" }}>Projects</Link>
             <span>/</span>
-            <span style={{ color: "#fff" }}>{name}</span>
+            <span style={{ color: "var(--color-text)" }}>{name}</span>
           </div>
 
           {/* Name + tags */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
-            <span style={{ color: "#fff", fontSize: 14, fontWeight: 500 }}>{name}</span>
+            <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500 }}>{name}</span>
             {tags.map(t => <Tag key={t} label={t} />)}
           </div>
 
@@ -179,20 +179,20 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
 
           {/* All texts */}
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
+            <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
           </div>
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
+            <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
           </div>
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
+            <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
           </div>
           <div>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
-            <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
+            <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
           </div>
 
           {/* Rest of images */}

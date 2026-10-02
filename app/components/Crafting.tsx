@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const ArrowUpRight = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text)", flexShrink: 0 }}>
     <line x1="7" y1="17" x2="17" y2="7" />
     <polyline points="7 7 17 7 17 17" />
   </svg>
@@ -15,7 +15,7 @@ const projects = [
 export default function Crafting() {
   return (
     <div id="crafting" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-      <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Crafting</span>
+      <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>Crafting</span>
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {projects.map((p) => (
           <a key={p.label} href={p.href} target="_blank" rel="noopener noreferrer"
@@ -25,8 +25,8 @@ export default function Crafting() {
                 <Image src={p.logo} alt={p.label} width={36} height={36} preload style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                <span style={{ color: "#fff", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{p.label}</span>
-                <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{p.sub}</span>
+                <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{p.label}</span>
+                <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{p.sub}</span>
               </div>
             </div>
             <ArrowUpRight />

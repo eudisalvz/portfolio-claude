@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { SiteImage } from "./images";
+import { colors } from "./colors";
 
 // Shared renderer for the opengraph-image.tsx files.
 // ImageResponse only accepts static ttf/otf/woff fonts, so the Geist TTFs are read from the geist package.
@@ -19,8 +20,8 @@ const fonts = Promise.all([
 
 const Header = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-    <span style={{ color: "#fff", fontSize: 30, fontWeight: 500 }}>Eudis Alvarez</span>
-    <span style={{ color: "#9E9E9E", fontSize: 26 }}>UI / UX Designer · Lawyer</span>
+    <span style={{ color: colors.text, fontSize: 30, fontWeight: 500 }}>Eudis Alvarez</span>
+    <span style={{ color: colors.textSecondary, fontSize: 26 }}>UI / UX Designer · Lawyer</span>
   </div>
 );
 
@@ -30,12 +31,12 @@ export async function textOgImage({ title, description }: { title: string; descr
     (
       <div style={{
         width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between",
-        background: "#0A0A0A", padding: 80, fontFamily: "Geist",
+        background: colors.bg, padding: 80, fontFamily: "Geist",
       }}>
         <Header />
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <span style={{ color: "#fff", fontSize: 64, fontWeight: 500, lineHeight: 1.1 }}>{title}</span>
-          <span style={{ color: "#9E9E9E", fontSize: 30, lineHeight: 1.4, maxWidth: 960 }}>{description}</span>
+          <span style={{ color: colors.text, fontSize: 64, fontWeight: 500, lineHeight: 1.1 }}>{title}</span>
+          <span style={{ color: colors.textSecondary, fontSize: 30, lineHeight: 1.4, maxWidth: 960 }}>{description}</span>
         </div>
       </div>
     ),
@@ -52,18 +53,18 @@ export async function caseStudyOgImage({ name, image }: { name: string; image: S
     (
       <div style={{
         width: "100%", height: "100%", display: "flex", alignItems: "stretch", gap: 48,
-        background: "#0A0A0A", padding: 60, fontFamily: "Geist",
+        background: colors.bg, padding: 60, fontFamily: "Geist",
       }}>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", flex: 1 }}>
           <Header />
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            <span style={{ color: "#9E9E9E", fontSize: 28 }}>Case study</span>
-            <span style={{ color: "#fff", fontSize: 56, fontWeight: 500, lineHeight: 1.1 }}>{name}</span>
+            <span style={{ color: colors.textSecondary, fontSize: 28 }}>Case study</span>
+            <span style={{ color: colors.text, fontSize: 56, fontWeight: 500, lineHeight: 1.1 }}>{name}</span>
           </div>
         </div>
         <div style={{
           display: "flex", alignItems: "center", justifyContent: "center", width: 620,
-          background: "#000", border: "1px solid #1B1B1B", borderRadius: 20, padding: 24,
+          background: colors.imageBg, border: `1px solid ${colors.imageBorder}`, borderRadius: 20, padding: 24,
         }}>
           {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders plain <img>, next/image does not apply */}
           <img src={src} width={572} height={Math.round((572 * image.height) / image.width)} alt="" />
