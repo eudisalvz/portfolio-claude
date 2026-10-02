@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import SocialRow from "./SocialRow";
+import Connect from "./Connect";
 import type { SiteImage } from "../images";
 
 interface CaseStudyProps {
@@ -152,13 +152,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           )}
 
           {/* Connect */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudis.vah@gmail.com
-            </a>
-            <SocialRow />
-          </div>
+          <Connect gap={10} />
 
         </div>
 
@@ -205,13 +199,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           {images.slice(1).map((image, i) => <Vessel key={i} image={image} ratio={aspectRatio} />)}
 
           {/* Connect */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudis.vah@gmail.com
-            </a>
-            <SocialRow />
-          </div>
+          <Connect gap={10} />
 
         </div>
       </main>

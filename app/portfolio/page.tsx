@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import SocialRow from "../components/SocialRow";
+import Connect from "../components/Connect";
 import BackToTop from "../components/BackToTop";
 import Image from "next/image";
 import { images } from "../images";
@@ -92,13 +92,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "50px" }}>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudis.vah@gmail.com
-            </a>
-            <SocialRow />
-          </div>
+          <Connect style={{ marginTop: "50px" }} />
         </div>
 
         {/* MOBILE */}
@@ -111,13 +105,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudis.vah@gmail.com
-            </a>
-            <SocialRow />
-          </div>
+          <Connect gap={10} lineHeight="var(--lh-body)" />
         </div>
 
         <BackToTop />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,8 +14,13 @@ const navItems = [
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Close the menu on any route change (including browser back/forward)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
 
   return (
     <>
@@ -84,7 +89,7 @@ export default function MobileHeader() {
         transition: "opacity 0.15s ease",
       }}>
         {navItems.map((item) => (
-          <Link key={item.label} href={item.href}
+          <Link key={item.label} href={item.href} onClick={() => setOpen(false)}
             style={{ textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div>
               <span style={{

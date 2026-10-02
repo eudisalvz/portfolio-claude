@@ -1,7 +1,7 @@
 import Nav from "./components/Nav";
 import Section from "./components/Section";
 import Crafting from "./components/Crafting";
-import SocialRow from "./components/SocialRow";
+import Connect from "./components/Connect";
 
 export default function Home() {
   return (
@@ -71,13 +71,7 @@ export default function Home() {
                 UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
               </Section>
               <Crafting />
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-                <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                  eudis.vah@gmail.com
-                </a>
-                <SocialRow />
-              </div>
+              <Connect />
             </div>
           </div>
         </div>
@@ -88,13 +82,7 @@ export default function Home() {
             UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
           </Section>
           <Crafting />
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudis.vah@gmail.com
-            </a>
-            <SocialRow />
-          </div>
+          <Connect />
         </div>
 
       </main>

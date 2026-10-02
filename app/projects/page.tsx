@@ -1,6 +1,5 @@
 import Nav from "../components/Nav";
-import SocialRow from "../components/SocialRow";
-import Link from "next/link";
+import Connect from "../components/Connect";
 import Image from "next/image";
 
 const myProjects = [
@@ -22,26 +21,6 @@ const ArrowUpRight = () => (
   </svg>
 );
 
-const ChevronRight = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9E9E9E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-    <polyline points="9 18 15 12 9 6" />
-  </svg>
-);
-
-const Tag = ({ label }: { label: string }) => (
-  <span style={{
-    fontSize: "var(--fs-body)",
-    lineHeight: "var(--lh-body)",
-    color: "#9E9E9E",
-    background: "#141414",
-    borderRadius: "6px",
-    padding: "0px 5px",
-    whiteSpace: "nowrap",
-  }}>
-    {label}
-  </span>
-);
-
 const MyProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; logo: string; href: string }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -55,19 +34,6 @@ const MyProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; lo
     </div>
     <ArrowUpRight />
   </a>
-);
-
-const ProjectRow = ({ name, tags, year, href }: { name: string; tags: string[]; year: string; href: string }) => (
-  <Link href={href} style={{ textDecoration: "none" }}>
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", cursor: "pointer" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", flex: 1 }}>
-        <span style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", whiteSpace: "nowrap" }}>{name}</span>
-        {tags.map(t => <Tag key={t} label={t} />)}
-        <Tag label={year} />
-      </div>
-      <ChevronRight />
-    </div>
-  </Link>
 );
 
 export default function Projects() {
@@ -159,13 +125,7 @@ export default function Projects() {
               </div>
 
               {/* Connect */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-                <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-                  eudis.vah@gmail.com
-                </a>
-                <SocialRow />
-              </div>
+              <Connect />
             </div>
           </div>
         </div>
@@ -186,13 +146,7 @@ export default function Projects() {
           </div>
 
           {/* Connect */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            <span style={{ color: "#fff", fontSize: "var(--fs-body)" }}>Connect</span>
-            <a href="mailto:eudis.vah@gmail.com" style={{ color: "#9E9E9E", fontSize: "var(--fs-body)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
-              eudis.vah@gmail.com
-            </a>
-            <SocialRow />
-          </div>
+          <Connect />
 
         </div>
       </main>
