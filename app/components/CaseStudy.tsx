@@ -42,8 +42,7 @@ const Vessel = ({ image, ratio = "4/3" }: { image?: SiteImage; ratio?: string })
     boxSizing: "border-box",
   }}>
     {image ? (
-      <Image src={image.src} width={image.width} height={image.height} alt={image.alt}
-        sizes="(min-width: 1024px) 45vw, 90vw"
+      <Image src={image.src} width={image.width} height={image.height} alt={image.alt} unoptimized
         style={{ width: "100%", height: "100%", objectFit: "contain" }} />
     ) : (
       <span style={{ color: "#222", fontSize: 11 }}>image</span>

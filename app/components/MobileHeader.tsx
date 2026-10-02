@@ -31,7 +31,7 @@ export default function MobileHeader() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-            <Image src="/pfp.webp" alt="Eudis Alvarez" width={36} height={36} preload={pathname === "/"} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <Image src="/pfp.jpg" alt="Eudis Alvarez" width={36} height={36} preload={pathname === "/"} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>

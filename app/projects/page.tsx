@@ -4,15 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 const myProjects = [
-  { name: "Cardverse",          sub: "App · Q2 2026",      logo: "/cardverse-logo.webp", href: "https://www.cardverse.io/" },
-  { name: "Alamo Algorithmics", sub: "Dev & Design Agency · 2024", logo: "/alamo-logo.webp",  href: "https://www.alamoalgorithmics.com/" },
+  { name: "Cardverse",          sub: "App · Q2 2026",      logo: "/cardverse-logo.png", href: "https://www.cardverse.io/" },
+  { name: "Alamo Algorithmics", sub: "Dev & Design Agency · 2024", logo: "/alamo-logo.png",  href: "https://www.alamoalgorithmics.com/" },
 ];
 
 const clientProjects = [
-  { name: "Depends On The Weather", sub: "App · 2025",       logo: "/dow-logo.webp",    href: "/projects/depends-on-the-weather" },
-  { name: "Master Perfumes",        sub: "Ecommerce · 2025", logo: "/master-logo.webp", href: "/projects/master-perfumes" },
-  { name: "Decision Point Weather", sub: "SaaS · 2025",      logo: "/dpw-logo.webp",    href: "/projects/decision-point-weather" },
-  { name: "Torq app",               sub: "App · 2024",       logo: "/torq-logo.webp",   href: "/projects/torq-app" },
+  { name: "Depends On The Weather", sub: "App · 2025",       logo: "/dow-logo.png",    href: "/projects/depends-on-the-weather" },
+  { name: "Master Perfumes",        sub: "Ecommerce · 2025", logo: "/master-logo.png", href: "/projects/master-perfumes" },
+  { name: "Decision Point Weather", sub: "SaaS · 2025",      logo: "/dpw-logo.png",    href: "/projects/decision-point-weather" },
+  { name: "Torq app",               sub: "App · 2024",       logo: "/torq-logo.png",   href: "/projects/torq-app" },
 ];
 
 const ArrowUpRight = () => (
