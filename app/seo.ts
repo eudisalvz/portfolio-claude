@@ -26,7 +26,7 @@ export const pages = {
   projects: {
     path: "/projects",
     title: "Projects",
-    description: "Case studies and client work, from SaaS dashboards and mobile apps to e-commerce, plus my own products Cardverse and Alamo Algorithmics.",
+    description: "Case studies and products I've designed, from SaaS dashboards and mobile apps to e-commerce and my own ventures.",
   },
 } satisfies Record<string, PageSeo>;
 
