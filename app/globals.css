@@ -90,6 +90,19 @@ a {
   box-sizing: border-box;
 }
 
+/* Mobile: on pages shorter than the visible screen, push the footer to the bottom.
+   100dvh is the real visible height; long pages are unaffected (margin-top: auto = 0). */
+@media (max-width: 1023px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+  .site-footer {
+    margin-top: auto;
+  }
+}
+
 @media (min-width: 1024px) {
   .site-footer {
     padding: 0 58px 42px;
