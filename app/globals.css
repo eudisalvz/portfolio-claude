@@ -100,6 +100,14 @@ a {
   margin: auto 0;
 }
 
+/* Mobile: Projects' column gets the Home column's height (content at the top), so both are
+   centered the same way and start at exactly the same height. Update if the Home text changes
+   (Home column height at 348px wide). */
+@media (max-width: 1023px) {
+  :root { --home-column-h: 584px; }
+  .column--match-home { min-height: var(--home-column-h); }
+}
+
 @media (min-width: 1024px) {
   :root { --header-h: calc(35px + 30px); }
   .site-header { padding-top: 35px; }
