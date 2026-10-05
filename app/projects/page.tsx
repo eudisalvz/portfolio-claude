@@ -4,16 +4,7 @@ import Nav from "../components/Nav";
 import Connect from "../components/Connect";
 import Image from "next/image";
 import Link from "next/link";
-
-// Newest first. External products open in a new tab; case studies stay in the same tab.
-const projects = [
-  { name: "Cardverse",              sub: "App · Q2 2026",              logo: "/cardverse-logo.png", href: "https://www.cardverse.io/" },
-  { name: "Depends on the Weather", sub: "App · 2025",                 logo: "/dow-logo.png",       href: "/projects/depends-on-the-weather" },
-  { name: "Master Perfumes",        sub: "Ecommerce · 2025",           logo: "/master-logo.png",    href: "/projects/master-perfumes" },
-  { name: "Decision Point Weather", sub: "SaaS · 2025",                logo: "/dpw-logo.png",       href: "/projects/decision-point-weather" },
-  { name: "Alamo Algorithmics",     sub: "Dev & Design Agency · 2024", logo: "/alamo-logo.png",     href: "https://www.alamoalgorithmics.com/" },
-  { name: "Torq app",               sub: "App · 2024",                 logo: "/torq-logo.png",      href: "/projects/torq-app" },
-];
+import { isExternal, projects } from "../project-list";
 
 const ArrowUpRight = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text)", flexShrink: 0 }}>
@@ -32,7 +23,7 @@ const ArrowRight = () => (
 const rowStyle: React.CSSProperties = { textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" };
 
 const ProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; logo: string; href: string }) => {
-  const external = href.startsWith("http");
+  const external = isExternal(href);
   const content = (
     <>
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>

@@ -4,12 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-const navItems = [
-  { label: "Home",      href: "/",          desc: "Who I am and what I do." },
-  { label: "Portfolio", href: "/portfolio",  desc: "A selection of my visual work." },
-  { label: "Projects",  href: "/projects",   desc: "Case studies and client work." },
-];
+import { navItems } from "../nav";
 
 export default function MobileHeader() {
   const [open, setOpen] = useState(false);
@@ -22,8 +17,11 @@ export default function MobileHeader() {
     setOpen(false);
   }
 
+  // Home uses the centered pill menu instead of this header.
+  if (pathname === "/") return null;
+
   return (
-    <>
+    <div className="mobile-layout-header" style={{ position: "relative" }}>
       {/* Header row — always on top */}
       <div style={{
         display: "flex",
@@ -36,7 +34,7 @@ export default function MobileHeader() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0 }}>
-            <Image src="/pfp.jpg" alt="Eudis Alvarez" width={36} height={36} preload={pathname === "/"} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <Image src="/pfp.jpg" alt="Eudis Alvarez" width={36} height={36} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -112,6 +110,6 @@ export default function MobileHeader() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }

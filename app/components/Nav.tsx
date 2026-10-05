@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const navItems = [
-  { label: "Home",      href: "/" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Projects",  href: "/projects" },
-];
+import { navItems } from "../nav";
 
 export default function Nav() {
   const pathname = usePathname();

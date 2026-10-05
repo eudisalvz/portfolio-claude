@@ -1,10 +1,12 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import MobileHeader from "./components/MobileHeader";
 import Copyright from "./components/Copyright";
+import SiteFooter from "./components/SiteFooter";
+import ThemeToggle from "./components/ThemeToggle";
 import { siteDescription, siteName, siteTitle, siteUrl } from "./seo";
-import { colors } from "./colors";
+import { themeScript } from "./theme";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,27 +26,25 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export const viewport: Viewport = {
-  themeColor: colors.bg,
-  colorScheme: "light",
-};
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
+    // data-theme is set by the inline script before paint, so React must accept the DOM value.
+    <html lang="en" className={GeistSans.variable} data-theme="light" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        {/* Mobile header lives here so video persists across page navigation */}
-        <div className="mobile-layout-header" style={{ position: "relative" }}>
-          <MobileHeader />
-        </div>
+        {/* Mobile header lives in the layout so it persists across page navigation (hidden on Home) */}
+        <MobileHeader />
         {children}
-        <footer className="site-footer">
+        <SiteFooter>
           <Copyright />
-        </footer>
+          <ThemeToggle />
+        </SiteFooter>
       </body>
     </html>
   );

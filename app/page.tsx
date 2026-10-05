@@ -1,91 +1,131 @@
-import Nav from "./components/Nav";
-import Section from "./components/Section";
-import Crafting from "./components/Crafting";
-import Connect from "./components/Connect";
+import Image from "next/image";
+import Link from "next/link";
+import { Shadows_Into_Light } from "next/font/google";
+import PillNav from "./components/PillNav";
+import { socials } from "./components/SocialRow";
+import { isExternal, projects, type ProjectName } from "./project-list";
+
+const handwriting = Shadows_Into_Light({ weight: "400", subsets: ["latin"], display: "swap" });
+
+// Project names in the About text link to their case study (same tab) or site (new tab).
+const ProjectLink = ({ name }: { name: ProjectName }) => {
+  const { href } = projects.find((p) => p.name === name)!;
+  return isExternal(href) ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="home-link">{name}</a>
+  ) : (
+    <Link href={href} className="home-link">{name}</Link>
+  );
+};
+
+const connectLinks = [
+  { label: "Linkedin", social: socials.find((s) => s.name === "LinkedIn")! },
+  { label: "X",        social: socials.find((s) => s.name === "X")! },
+];
 
 export default function Home() {
   return (
     <>
       <style>{`
-        .layout { background: var(--color-bg); }
-        .desktop { display: none; }
-        .mobile {
+        .home {
           display: flex;
           flex-direction: column;
-          gap: 30px;
-          width: 100%;
-          padding: 20px 28px 28px;
+          align-items: center;
+          flex: 1 0 auto;
           box-sizing: border-box;
+          padding: 30px 0;
+          font-size: 12px;
+          line-height: 20px;
+        }
+        .home .pill-nav { margin-bottom: 30px; }
+        .home-column {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 348px;
+          max-width: calc(100% - 24px);
+          margin: auto 0;
+        }
+        .home-name {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 30px;
+        }
+        .home-about {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+          margin-top: 30px;
+          color: var(--color-text-secondary);
+          text-align: justify;
+        }
+        .home-about p { margin: 0; }
+        .home-link {
+          color: var(--color-text);
+          text-decoration: underline;
+          text-decoration-style: dotted;
+          text-underline-offset: 2px;
+        }
+        .home-connect {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          width: 100%;
+          margin-top: 10px;
+          color: var(--color-text);
         }
         @media (min-width: 1024px) {
-          .layout { min-height: calc(100vh - var(--footer-h)); }
-          .mobile { display: none; }
-          .desktop { display: flex; width: 100%; height: calc(100vh - var(--footer-h)); }
-          .desktop-photo {
-            flex-shrink: 0;
-            width: calc((100% - 16px) * 0.4);
-            margin: 58px 0 42px 58px;
-            border-radius: 20px;
-            overflow: hidden;
-          }
-          .desktop-right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 58px 58px 42px 50px;
-            overflow: hidden;
-          }
-          .desktop-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 20px;
-          }
-          .desktop-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 342px;
-          }
+          /* Pill 35px from the top; the column starts 158px from the top (35 + 30 + 93) */
+          .home { flex: none; min-height: calc(100vh - var(--footer-h)); padding: 35px 0 30px; }
+          .home .pill-nav { margin-bottom: 0; }
+          .home-column { margin: 93px 0 0; }
         }
       `}</style>
 
-      <main className="layout">
+      <main className="home">
+        <PillNav />
 
-        {/* DESKTOP */}
-        <div className="desktop">
-          <div className="desktop-photo">
-            <video src="/hero.mp4" autoPlay loop muted playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <div className="home-column">
+          <Image src="/pfp.jpg" alt="Eudis Alvarez" width={94} height={94} preload
+            style={{ borderRadius: 20, objectFit: "cover" }} />
+
+          <div className="home-name">
+            <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500 }}>Eudis Alvarez</span>
+            <span style={{ color: "var(--color-text-secondary)" }}>UI / UX Designer · Lawyer</span>
           </div>
-          <div className="desktop-right">
-            <div className="desktop-topbar">
-              <Nav />
-            </div>
-            <div className="desktop-content">
-              <div>
-                <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
-              </div>
-              <Section label="About" id="about">
-                UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
-              </Section>
-              <Crafting />
-              <Connect />
+
+          <div className="home-about">
+            <p><span className={handwriting.className}>Hi there</span> 👋</p>
+            <p>I&apos;m a UI/UX designer with a legal background. I turn complex workflows into simple, intuitive web and mobile experiences.</p>
+            <p>
+              Over the past few years, I&apos;ve redesigned the <ProjectLink name="Torq app" /> for US contractors and built a SaaS
+              dashboard for <ProjectLink name="Decision Point Weather" />. I also reimagined <ProjectLink name="Depends on the Weather" />,
+              an outdoor planning app, and crafted a premium e-commerce experience for <ProjectLink name="Master Perfumes" />, across
+              construction, weather and retail.
+            </p>
+            <p>
+              I also build my own things. I run <ProjectLink name="Alamo Algorithmics" />, a dev &amp; design agency, and I&apos;m
+              currently working on <ProjectLink name="Cardverse" />.
+            </p>
+            <p>My legal background shapes how I design: clear structure, attention to detail and products people can trust.</p>
+            <p>Let&apos;s connect</p>
+          </div>
+
+          <div className="home-connect">
+            <span>Eudis Alvarez (@eudisalvz)</span>
+            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+              {connectLinks.map(({ label, social }) => (
+                <a key={label} href={social.href} target="_blank" rel="noopener noreferrer"
+                  style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  {social.icon}
+                  <span>{label}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
-
-        {/* MOBILE */}
-        <div className="mobile">
-          <Section label="About" id="about">
-            UI/UX Designer with a legal background. I turn complex workflows into simple, intuitive experiences.
-          </Section>
-          <Crafting />
-          <Connect />
-        </div>
-
       </main>
     </>
   );
