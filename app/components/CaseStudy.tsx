@@ -69,14 +69,14 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 20px 28px 28px;
+          padding: 30px 28px 28px;
           box-sizing: border-box;
         }
 
         .cs-desktop { display: none; }
 
         @media (min-width: 1024px) {
-          .cs-layout { min-height: calc(100vh - var(--footer-h)); }
+          .cs-layout { min-height: calc(100vh - var(--header-h) - var(--footer-h)); }
           .cs-mobile { display: none; }
           .cs-desktop {
             display: flex;

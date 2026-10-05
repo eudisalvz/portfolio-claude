@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
-import Nav from "../components/Nav";
 import Connect from "../components/Connect";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,107 +49,18 @@ export const metadata: Metadata = pageMetadata(pages.projects);
 
 export default function Projects() {
   return (
-    <>
-      <style>{`
-        .pr-layout { background: var(--color-bg); overflow-x: hidden; }
-        .pr-desktop { display: none; }
-        .pr-mobile {
-          display: flex;
-          flex-direction: column;
-          gap: 30px;
-          width: 100%;
-          padding: 20px 28px 28px;
-          box-sizing: border-box;
-        }
-        @media (min-width: 1024px) {
-          .pr-layout { min-height: calc(100vh - var(--footer-h)); }
-          .pr-mobile { display: none; }
-          .pr-desktop {
-            display: flex;
-            width: 100%;
-            height: calc(100vh - var(--footer-h));
-            box-sizing: border-box;
-          }
-          .pr-left {
-            flex-shrink: 0;
-            width: calc((100% - 16px) * 0.4);
-            margin: 58px 0 42px 58px;
-            border-radius: 20px;
-            background: var(--color-panel);
-            overflow: hidden;
-          }
-          .pr-right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 58px 58px 42px 50px;
-            overflow: hidden;
-          }
-          .pr-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 20px;
-          }
-          .pr-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 342px;
-          }
-        }
-      `}</style>
-
-      <main className="pr-layout">
-
-        {/* DESKTOP */}
-        <div className="pr-desktop">
-          <div className="pr-left">
-            <video src="/hero.mp4" autoPlay loop muted playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-          </div>
-
-          <div className="pr-right">
-            {/* Topbar */}
-            <div className="pr-topbar">
-              <Nav />
-            </div>
-
-            {/* Content */}
-            <div className="pr-content">
-              {/* Name + role */}
-              <div>
-                <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px", display: "block" }}>Eudis Alvarez</span>
-                <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block" }}>UI / UX Designer · Lawyer</span>
-              </div>
-
-              {/* Projects */}
-              <div>
-                <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "10px" }}>Projects</span>
-                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
-              </div>
-
-              {/* Connect */}
-              <Connect />
-            </div>
-          </div>
+    <main className="column-page">
+      {/* Same centered 348px column as Home (.column in globals.css) */}
+      <div className="column" style={{ gap: 30 }}>
+        {/* Projects */}
+        <div>
+          <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "10px" }}>Projects</span>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
         </div>
 
-        {/* MOBILE */}
-        <div className="pr-mobile">
-
-          {/* Projects */}
-          <div>
-            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Projects</span>
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
-          </div>
-
-          {/* Connect */}
-          <Connect />
-
-        </div>
-      </main>
-    </>
+        {/* Connect */}
+        <Connect />
+      </div>
+    </main>
   );
 }

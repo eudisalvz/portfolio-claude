@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import MobileHeader from "./components/MobileHeader";
+import PillNav from "./components/PillNav";
 import Copyright from "./components/Copyright";
 import SiteFooter from "./components/SiteFooter";
 import ThemeToggle from "./components/ThemeToggle";
@@ -38,8 +38,10 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        {/* Mobile header lives in the layout so it persists across page navigation (hidden on Home) */}
-        <MobileHeader />
+        {/* Pill menu on every page, centered at the top */}
+        <header className="site-header">
+          <PillNav />
+        </header>
         {children}
         <SiteFooter>
           <Copyright />

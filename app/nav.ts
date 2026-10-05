@@ -1,6 +1,6 @@
-// Site navigation, shared by the desktop Nav, the Home pill menu and the mobile menu.
+// Site navigation (pill menu at the top of every page).
 export const navItems = [
-  { label: "About",     href: "/",          desc: "Who I am and what I do." },
-  { label: "Projects",  href: "/projects",  desc: "Case studies and client work." },
-  { label: "Portfolio", href: "/portfolio", desc: "A selection of my visual work." },
+  { label: "About",     href: "/" },
+  { label: "Projects",  href: "/projects" },
+  { label: "Portfolio", href: "/portfolio" },
 ];

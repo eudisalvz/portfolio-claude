@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
-import Nav from "../components/Nav";
 import Connect from "../components/Connect";
 import BackToTop from "../components/BackToTop";
 import Image from "next/image";
@@ -49,7 +48,7 @@ export default function Portfolio() {
           flex-direction: column;
           gap: 30px;
           width: 100%;
-          padding: 20px 28px 28px;
+          padding: 30px 28px 28px;
           box-sizing: border-box;
         }
         .p-grid-mobile {
@@ -58,7 +57,7 @@ export default function Portfolio() {
           gap: 20px;
         }
         @media (min-width: 1024px) {
-          .p-layout { min-height: calc(100vh - var(--footer-h)); }
+          .p-layout { min-height: calc(100vh - var(--header-h) - var(--footer-h)); }
           .p-mobile { display: none; }
           .p-desktop {
             display: block;
@@ -87,7 +86,6 @@ export default function Portfolio() {
         <div className="p-desktop">
           <div className="p-topbar">
             <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "20px", textTransform: "uppercase" }}>Crafting</span>
-            <Nav />
           </div>
           <div className="p-grid-desktop">
             {cards.map((card) => (

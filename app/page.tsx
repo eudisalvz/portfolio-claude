@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
-import PillNav from "./components/PillNav";
 import { socials } from "./components/SocialRow";
 import { isExternal, projects, type ProjectName } from "./project-list";
 
@@ -26,25 +25,9 @@ export default function Home() {
   return (
     <>
       <style>{`
-        .home {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          flex: 1 0 auto;
-          box-sizing: border-box;
-          padding: 30px 0;
-          font-size: 12px;
-          line-height: 20px;
-        }
-        .home .pill-nav { margin-bottom: 30px; }
-        .home-column {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 348px;
-          max-width: calc(100% - 24px);
-          margin: auto 0;
-        }
+        /* Layout comes from .column-page / .column in globals.css (shared with Projects) */
+        .home { font-size: 12px; line-height: 20px; }
+        .home-column { align-items: center; }
         .home-name {
           display: flex;
           flex-direction: column;
@@ -76,18 +59,10 @@ export default function Home() {
           margin-top: 10px;
           color: var(--color-text);
         }
-        @media (min-width: 1024px) {
-          /* Pill 35px from the top; the column starts 158px from the top (35 + 30 + 93) */
-          .home { flex: none; min-height: calc(100vh - var(--footer-h)); padding: 35px 0 30px; }
-          .home .pill-nav { margin-bottom: 0; }
-          .home-column { margin: 93px 0 0; }
-        }
       `}</style>
 
-      <main className="home">
-        <PillNav />
-
-        <div className="home-column">
+      <main className="column-page home">
+        <div className="column home-column">
           <Image src="/pfp.jpg" alt="Eudis Alvarez" width={94} height={94} preload
             style={{ borderRadius: 20, objectFit: "cover" }} />
 

@@ -14,7 +14,6 @@
   --color-image-border: #E5E5E5;
   --color-placeholder-bg: #F0F0F0;
   --color-placeholder-text: #BDBDBD;
-  --color-overlay: rgba(0, 0, 0, 0.3);
   --pill-bg: rgba(10, 10, 10, 0.04);
   --pill-border: rgba(10, 10, 10, 0.06);
 
@@ -28,6 +27,9 @@
   /* Desktop footer height (30px row + 34px bottom padding = 64px, same as the previous footer);
      full-screen pages subtract it from 100vh */
   --footer-h: calc(30px + 34px);
+
+  /* Header with the pill menu: top offset + 30px pill (35px offset on desktop) */
+  --header-h: calc(30px + 30px);
 }
 
 /* Dark theme: same variables, set by the inline script in <head> (see app/theme.ts) */
@@ -42,7 +44,6 @@
   --color-image-border: #1B1B1B;
   --color-placeholder-bg: #141414;
   --color-placeholder-text: #222222;
-  --color-overlay: rgba(0, 0, 0, 0.6);
   --pill-bg: rgba(255, 255, 255, 0.05);
   --pill-border: rgba(255, 255, 255, 0.05);
 }
@@ -74,34 +75,41 @@ a {
   text-decoration: none;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Header: pill menu centered, 30px from the top (35px on desktop) */
+.site-header {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
 }
 
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(0.85); }
-}
-
-.animate-fade-up    { animation: fadeUp 0.4s ease both; }
-.animate-pulse-dot  { animation: pulseDot 2.5s ease-in-out infinite; }
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
-.mobile-layout-header {
-  display: block;
-  padding: 28px 28px 0;
+/* Centered 348px column (Home and Projects). On mobile it is vertically centered
+   between the pill and the footer when it fits; on desktop it starts 158px from the top. */
+.column-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 auto;
   box-sizing: border-box;
+  padding: 30px 0;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 348px;
+  max-width: calc(100% - 24px);
+  margin: auto 0;
 }
 
 @media (min-width: 1024px) {
-  .mobile-layout-header {
-    display: none;
+  :root { --header-h: calc(35px + 30px); }
+  .site-header { padding-top: 35px; }
+  .column-page {
+    flex: none;
+    min-height: calc(100vh - var(--header-h) - var(--footer-h));
+    padding: 0 0 30px;
   }
+  /* 35px offset + 30px pill + 93px = 158px from the top */
+  .column { margin: 93px 0 0; }
 }
 
 /* Pill surface (menu and theme toggle). The border is an inset shadow so it takes no layout space. */
