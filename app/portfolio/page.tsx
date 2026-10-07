@@ -47,8 +47,11 @@ export default function Portfolio() {
           display: flex;
           flex-direction: column;
           gap: 30px;
-          width: 100%;
-          padding: 30px 28px 28px;
+          /* Same width and horizontal position as the Home/Projects column on mobile */
+          width: 348px;
+          max-width: calc(100% - 24px);
+          margin: 0 auto;
+          padding: 30px 0 28px;
           box-sizing: border-box;
         }
         .p-grid-mobile {
