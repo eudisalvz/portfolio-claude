@@ -184,8 +184,15 @@ a {
     flex-direction: column;
     min-height: 100dvh;
   }
+  /* Footer follows the same centered 348px column as the content on every page */
   .site-footer {
     margin-top: auto;
+    width: 348px;
+    max-width: calc(100% - 24px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
