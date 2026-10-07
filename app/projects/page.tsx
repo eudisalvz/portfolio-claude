@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
-import Connect from "../components/Connect";
+import Contact from "../components/Contact";
 import Image from "next/image";
 import Link from "next/link";
 import { isExternal, projects } from "../project-list";
@@ -58,8 +58,8 @@ export default function Projects() {
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
         </div>
 
-        {/* Connect */}
-        <Connect />
+        {/* Contact */}
+        <Contact />
       </div>
     </main>
   );

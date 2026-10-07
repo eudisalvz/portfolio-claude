@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata, pages } from "../seo";
-import Connect from "../components/Connect";
+import Contact from "../components/Contact";
 import BackToTop from "../components/BackToTop";
 import Image from "next/image";
 import { images, type SiteImage } from "../images";
@@ -95,7 +95,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <Connect style={{ marginTop: "50px" }} />
+          <Contact style={{ marginTop: "50px" }} />
         </div>
 
         {/* MOBILE */}
@@ -108,7 +108,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <Connect gap={10} lineHeight="var(--lh-body)" />
+          <Contact />
         </div>
 
         <BackToTop />

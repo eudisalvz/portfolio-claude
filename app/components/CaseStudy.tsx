@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Connect from "./Connect";
+import Contact from "./Contact";
 import type { SiteImage } from "../images";
 
 interface CaseStudyProps {
@@ -117,19 +117,19 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
           {/* 4-col text grid */}
           <div className="cs-text-grid">
             <div>
-              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>Overview</span>
               <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
             </div>
             <div>
-              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>The problem</span>
               <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
             </div>
             <div>
-              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>What I did</span>
               <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
             </div>
             <div>
-              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
+              <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>Result</span>
               <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
             </div>
           </div>
@@ -152,8 +152,8 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
             </div>
           )}
 
-          {/* Connect */}
-          <Connect gap={10} />
+          {/* Contact */}
+          <Contact />
 
         </div>
 
@@ -180,27 +180,27 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
 
           {/* All texts */}
           <div>
-            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Overview</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>Overview</span>
             <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{overview}</span>
           </div>
           <div>
-            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>The problem</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>The problem</span>
             <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{problem}</span>
           </div>
           <div>
-            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>What I did</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>What I did</span>
             <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{whatIDid}</span>
           </div>
           <div>
-            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", display: "block", marginBottom: "10px" }}>Result</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>Result</span>
             <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{result}</span>
           </div>
 
           {/* Rest of images */}
           {images.slice(1).map((image, i) => <Vessel key={i} image={image} ratio={aspectRatio} />)}
 
-          {/* Connect */}
-          <Connect gap={10} />
+          {/* Contact */}
+          <Contact />
 
         </div>
       </main>

@@ -122,6 +122,36 @@ a {
   border-radius: 50px;
 }
 
+/* Contact block (components/Contact.tsx): 348px, same styles as on Home */
+.contact {
+  width: 348px;
+  max-width: 100%;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+.contact p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
+  color: var(--color-text);
+}
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* Pill menu: 30px tall, 10px side padding, 10px between links */
 .pill-nav {
   display: inline-flex;

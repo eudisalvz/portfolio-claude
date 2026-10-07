@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
-import { socials } from "./components/SocialRow";
+import Contact from "./components/Contact";
 import { isExternal, projects, type ProjectName } from "./project-list";
 
 const handwriting = Shadows_Into_Light({ weight: "400", subsets: ["latin"], display: "swap" });
@@ -15,11 +15,6 @@ const ProjectLink = ({ name }: { name: ProjectName }) => {
     <Link href={href} className="home-link">{name}</Link>
   );
 };
-
-const connectLinks = [
-  { label: "Linkedin", social: socials.find((s) => s.name === "LinkedIn")! },
-  { label: "X",        social: socials.find((s) => s.name === "X")! },
-];
 
 export default function Home() {
   return (
@@ -50,15 +45,6 @@ export default function Home() {
           text-decoration-style: dotted;
           text-underline-offset: 2px;
         }
-        .home-connect {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 20px;
-          width: 100%;
-          margin-top: 10px;
-          color: var(--color-text);
-        }
       `}</style>
 
       <main className="column-page home">
@@ -85,21 +71,10 @@ export default function Home() {
               currently working on <ProjectLink name="Cardverse" />.
             </p>
             <p>My legal background shapes how I design: clear structure, attention to detail and products people can trust.</p>
-            <p>Let&apos;s connect</p>
           </div>
 
-          <div className="home-connect">
-            <span>Eudis Alvarez (@eudisalvz)</span>
-            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-              {connectLinks.map(({ label, social }) => (
-                <a key={label} href={social.href} target="_blank" rel="noopener noreferrer"
-                  style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                  {social.icon}
-                  <span>{label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
+          {/* 20px below the About text, like the gap between its paragraphs */}
+          <Contact style={{ marginTop: 20 }} />
         </div>
       </main>
     </>
