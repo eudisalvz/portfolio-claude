@@ -51,7 +51,7 @@ export default function Projects() {
   return (
     <main className="column-page">
       {/* Same centered 348px column as Home (.column in globals.css) */}
-      <div className="column column--match-home" style={{ gap: 30 }}>
+      <div className="column" style={{ gap: 30 }}>
         {/* Projects */}
         <div>
           <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "10px" }}>Projects</span>
