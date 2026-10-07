@@ -3,7 +3,6 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import PillNav from "./components/PillNav";
 import Copyright from "./components/Copyright";
-import SiteFooter from "./components/SiteFooter";
 import ThemeToggle from "./components/ThemeToggle";
 import { siteDescription, siteName, siteTitle, siteUrl } from "./seo";
 import { themeScript } from "./theme";
@@ -43,13 +42,13 @@ export default function RootLayout({
           <PillNav />
         </header>
         {children}
-        <SiteFooter>
+        <footer className="site-footer">
           <Copyright />
           {/* Right side of the footer row (bottom-right corner on desktop) */}
           <div className="footer-toggle">
             <ThemeToggle />
           </div>
-        </SiteFooter>
+        </footer>
       </body>
     </html>
   );

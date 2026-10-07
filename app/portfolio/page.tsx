@@ -47,9 +47,8 @@ export default function Portfolio() {
           display: flex;
           flex-direction: column;
           gap: 30px;
-          /* Same width and horizontal position as the Home/Projects column on mobile */
-          width: 348px;
-          max-width: calc(100% - 24px);
+          /* 16px side margins (iOS standard), same as the Home/Projects column on mobile */
+          width: calc(100% - 32px);
           margin: 0 auto;
           padding: 30px 0 28px;
           box-sizing: border-box;
@@ -68,12 +67,6 @@ export default function Portfolio() {
             padding: 58px 58px 42px;
             box-sizing: border-box;
           }
-          .p-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 50px;
-          }
           .p-grid-desktop {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -87,9 +80,6 @@ export default function Portfolio() {
 
         {/* DESKTOP */}
         <div className="p-desktop">
-          <div className="p-topbar">
-            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "20px", textTransform: "uppercase" }}>Crafting</span>
-          </div>
           <div className="p-grid-desktop">
             {cards.map((card) => (
               <div key={card.id} style={{ ...cardStyle, padding: "5%", background: card.background ?? cardStyle.background }}>

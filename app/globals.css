@@ -63,6 +63,12 @@ body {
   margin: 0;
 }
 
+/* Always reserve the vertical scrollbar's space, so centered content (pill, columns,
+   footer) sits at the same x on every page, whether it scrolls or not. */
+html {
+  scrollbar-gutter: stable;
+}
+
 html, body {
   background: var(--color-bg);
   color: var(--color-text);
@@ -99,12 +105,13 @@ a {
 .column {
   display: flex;
   flex-direction: column;
-  width: 348px;
-  max-width: calc(100% - 24px);
+  /* Mobile: full width minus the 16px iOS side margins */
+  width: calc(100% - 32px);
 }
 
 @media (min-width: 1024px) {
   :root { --header-h: calc(35px + 30px); }
+  .contact { width: 348px; }
   .site-header { padding-top: 35px; }
   .column-page {
     flex: none;
@@ -112,7 +119,7 @@ a {
     padding: 0 0 30px;
   }
   /* 35px offset + 30px pill + 93px = 158px from the top */
-  .column { margin: 93px 0 0; }
+  .column { width: 348px; margin: 93px 0 0; }
 }
 
 /* Pill surface (menu and theme toggle). The border is an inset shadow so it takes no layout space. */
@@ -122,10 +129,9 @@ a {
   border-radius: 50px;
 }
 
-/* Contact block (components/Contact.tsx): 348px, same styles as on Home */
+/* Contact block (components/Contact.tsx): full content width on mobile, 348px on desktop */
 .contact {
-  width: 348px;
-  max-width: 100%;
+  width: 100%;
   font-size: var(--fs-body);
   line-height: var(--lh-body);
 }
@@ -184,26 +190,15 @@ a {
     flex-direction: column;
     min-height: 100dvh;
   }
-  /* Footer follows the same centered 348px column as the content on every page */
+  /* Footer: same 16px side margins as the content on every page */
   .site-footer {
     margin-top: auto;
-    width: 348px;
-    max-width: calc(100% - 24px);
+    width: calc(100% - 32px);
     margin-left: auto;
     margin-right: auto;
     padding-left: 0;
     padding-right: 0;
   }
-}
-
-/* Home: footer matches the 348px centered column */
-.site-footer--home {
-  width: 348px;
-  max-width: calc(100% - 24px);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .footer-toggle { display: flex; }
@@ -213,8 +208,7 @@ a {
    edge. The toggle is absolute so it doesn't shift the copyright; same row (30px), so
    their vertical centers line up. */
 @media (min-width: 1024px) {
-  .site-footer,
-  .site-footer--home {
+  .site-footer {
     position: relative;
     width: auto;
     max-width: none;
