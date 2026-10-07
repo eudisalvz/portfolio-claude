@@ -38,14 +38,20 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        {/* Pill menu on every page, centered at the top */}
+        {/* Pill menu on every page, centered at the top; on desktop the theme toggle sits top-right */}
         <header className="site-header">
           <PillNav />
+          <div className="header-toggle">
+            <ThemeToggle />
+          </div>
         </header>
         {children}
         <SiteFooter>
           <Copyright />
-          <ThemeToggle />
+          {/* Mobile only; on desktop the toggle is in the header */}
+          <div className="footer-toggle">
+            <ThemeToggle />
+          </div>
         </SiteFooter>
       </body>
     </html>

@@ -103,9 +103,17 @@ a {
   max-width: calc(100% - 24px);
 }
 
+/* Theme toggle placement: footer on mobile, top-right of the header on desktop */
+.header-toggle { display: none; }
+.footer-toggle { display: flex; }
+
 @media (min-width: 1024px) {
   :root { --header-h: calc(35px + 30px); }
-  .site-header { padding-top: 35px; }
+  .site-header { position: relative; padding-top: 35px; }
+  /* Same top and height as the pill (centers aligned), 58px from the right like the page margins.
+     Absolute inside the header, so it scrolls with the page exactly like the pill. */
+  .header-toggle { display: flex; position: absolute; top: 35px; right: 58px; }
+  .footer-toggle { display: none; }
   .column-page {
     flex: none;
     min-height: calc(100vh - var(--header-h) - var(--footer-h));
@@ -199,6 +207,8 @@ a {
 @media (min-width: 1024px) {
   .site-footer {
     padding: 0 58px 34px;
+    /* Only the copyright is shown on desktop (toggle is in the header): centered */
+    justify-content: center;
   }
 }
 
