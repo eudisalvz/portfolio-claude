@@ -30,7 +30,7 @@ const ProjectRow = ({ name, sub, logo, href }: { name: string; sub: string; logo
           <Image src={logo} alt={name} width={36} height={36} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-          <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500, lineHeight: "20px" }}>{name}</span>
+          <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)" }}>{name}</span>
           <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>{sub}</span>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default function Projects() {
       <div className="column" style={{ gap: 30 }}>
         {/* Projects */}
         <div>
-          <span style={{ color: "var(--color-text)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)", display: "block", marginBottom: "10px" }}>Projects</span>
+          <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)", display: "block", marginBottom: "10px" }}>Projects</span>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>{projects.map(p => <ProjectRow key={p.name} {...p} />)}</div>
         </div>
 

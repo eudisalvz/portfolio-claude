@@ -21,8 +21,12 @@
   --gradient-sunset: linear-gradient(180deg, #1E1B2E 0%, #3D2440 45%, #7A3A45 75%, #C2694A 100%);
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --fs-body: 14px;
-  --lh-body: 22px;
+  /* Type scale (Home standard): body 12/20, titles and highlighted names 14/20 weight 500 */
+  --fs-body: 12px;
+  --lh-body: 20px;
+  --fs-title: 14px;
+  --lh-title: 20px;
+  --fw-title: 500;
 
   /* Desktop footer height (30px row + 34px bottom padding = 64px, same as the previous footer);
      full-screen pages subtract it from 100vh */
@@ -50,8 +54,8 @@
 
 @media (min-width: 1024px) {
   :root {
-    --fs-body: 14px;
-    --lh-body: 22px;
+    --fs-body: 12px;
+    --lh-body: 20px;
   }
 }
 
@@ -127,8 +131,8 @@ a {
   height: 30px;
   padding: 0 10px;
   box-sizing: border-box;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
 }
 
 /* Footer row: copyright left, theme toggle right */

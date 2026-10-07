@@ -33,7 +33,7 @@ export default function BackToTop() {
         zIndex: 50,
       }}
     >
-      <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "20px" }}>
+      <span style={{ color: "var(--color-text-secondary)", fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
         Back to top
       </span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: "var(--color-text-secondary)" }}>

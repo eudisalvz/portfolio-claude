@@ -110,7 +110,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
 
           {/* Name + tags */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500 }}>{name}</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)" }}>{name}</span>
             {tags.map(t => <Tag key={t} label={t} />)}
           </div>
 
@@ -171,7 +171,7 @@ export default function CaseStudy({ name, tags, overview, problem, whatIDid, res
 
           {/* Name + tags */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
-            <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500 }}>{name}</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)" }}>{name}</span>
             {tags.map(t => <Tag key={t} label={t} />)}
           </div>
 

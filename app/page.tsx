@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <style>{`
         /* Layout comes from .column-page / .column in globals.css (shared with Projects) */
-        .home { font-size: 12px; line-height: 20px; }
+        .home { font-size: var(--fs-body); line-height: var(--lh-body); }
         .home-column { align-items: center; }
         .home-name {
           display: flex;
@@ -67,7 +67,7 @@ export default function Home() {
             style={{ borderRadius: 20, objectFit: "cover" }} />
 
           <div className="home-name">
-            <span style={{ color: "var(--color-text)", fontSize: 14, fontWeight: 500 }}>Eudis Alvarez</span>
+            <span style={{ color: "var(--color-text)", fontSize: "var(--fs-title)", fontWeight: "var(--fw-title)", lineHeight: "var(--lh-title)" }}>Eudis Alvarez</span>
             <span style={{ color: "var(--color-text-secondary)" }}>UI / UX Designer · Lawyer</span>
           </div>
 
