@@ -103,17 +103,9 @@ a {
   max-width: calc(100% - 24px);
 }
 
-/* Theme toggle placement: footer on mobile, top-right of the header on desktop */
-.header-toggle { display: none; }
-.footer-toggle { display: flex; }
-
 @media (min-width: 1024px) {
   :root { --header-h: calc(35px + 30px); }
-  .site-header { position: relative; padding-top: 35px; }
-  /* Same top and height as the pill (centers aligned), 58px from the right like the page margins.
-     Absolute inside the header, so it scrolls with the page exactly like the pill. */
-  .header-toggle { display: flex; position: absolute; top: 35px; right: 58px; }
-  .footer-toggle { display: none; }
+  .site-header { padding-top: 35px; }
   .column-page {
     flex: none;
     min-height: calc(100vh - var(--header-h) - var(--footer-h));
@@ -204,14 +196,6 @@ a {
   }
 }
 
-@media (min-width: 1024px) {
-  .site-footer {
-    padding: 0 58px 34px;
-    /* Only the copyright is shown on desktop (toggle is in the header): centered */
-    justify-content: center;
-  }
-}
-
 /* Home: footer matches the 348px centered column */
 .site-footer--home {
   width: 348px;
@@ -220,6 +204,30 @@ a {
   margin-right: auto;
   padding-left: 0;
   padding-right: 0;
+}
+
+.footer-toggle { display: flex; }
+
+/* Desktop footer (all pages, Home included): full width with the 58px page margins,
+   copyright centered on screen, theme toggle in the bottom-right corner 58px from the
+   edge. The toggle is absolute so it doesn't shift the copyright; same row (30px), so
+   their vertical centers line up. */
+@media (min-width: 1024px) {
+  .site-footer,
+  .site-footer--home {
+    position: relative;
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 58px 34px;
+    justify-content: center;
+  }
+  .footer-toggle {
+    position: absolute;
+    top: 0;
+    right: 58px;
+  }
 }
 
 /* Theme toggle: 64x30 pill, indicator behind the active icon */

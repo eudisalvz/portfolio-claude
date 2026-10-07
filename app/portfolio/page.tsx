@@ -112,9 +112,10 @@ export default function Portfolio() {
             ))}
           </div>
           <Contact />
-        </div>
 
-        <BackToTop />
+          {/* Mobile only: lives in the mobile container, which is hidden on desktop */}
+          <BackToTop />
+        </div>
 
       </main>
     </>
